@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Family-friendly rental properties in Melbourne - Find spacious homes near schools, parks, and community facilities">
+    <meta name="keywords" content="Melbourne family homes, family-friendly rentals, houses for rent, school zones, child-friendly neighborhoods">
+    <meta name="author" content="RentEase Melbourne">
+    <title>Family Housing - RentEase Melbourne</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <style>
+        /* Additional styles specific to family housing page */
+        .neighborhood-section {
+            padding: var(--spacing-xl) 0;
+            background-color: var(--light-color);
+        }
+        
+        .neighborhood-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+        
+        .neighborhood-card {
+            background: white;
+            border-radius: var(--border-radius-md);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .neighborhood-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .neighborhood-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .neighborhood-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .neighborhood-content {
+            padding: var(--spacing-md);
+        }
+        
+        .neighborhood-content h3 {
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .amenities-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: var(--spacing-sm) 0;
+        }
+        
+        .amenity-tag {
+            background: var(--light-color);
+            padding: 5px 10px;
+            border-radius: var(--border-radius-sm);
+            font-size: 0.9rem;
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+        }
+        
+        .amenity-tag i {
+            margin-right: 5px;
+            color: var(--secondary-color);
+        }
+        
+        .school-info {
+            margin-top: var(--spacing-md);
+            padding-top: var(--spacing-md);
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .school-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .school-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .school-item i {
+            color: var(--secondary-color);
+            margin-right: 10px;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+        
+        .feature-card {
+            background: white;
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius-md);
+            box-shadow: var(--box-shadow);
+            text-align: center;
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .safety-checklist {
+            background: white;
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius-md);
+            margin-top: var(--spacing-md);
+        }
+        
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .checklist-item i {
+            color: var(--success-color);
+            margin-right: 10px;
+            margin-top: 4px;
+        }
+        
+        @media (max-width: 768px) {
+            .neighborhood-grid,
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Dropdown styles */
+        .main-menu li {
+            position: relative;
+        }
+        
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            box-shadow: var(--box-shadow);
+            border-radius: var(--border-radius-sm);
+            min-width: 200px;
+            z-index: 1000;
+        }
+        
+        .main-menu li:hover .dropdown-menu {
+            display: block;
+        }
+        
+        .dropdown-menu li {
+            width: 100%;
+        }
+        
+        .dropdown-menu a {
+            padding: 10px 15px;
+            display: block;
+            color: var(--text-color);
+            transition: all 0.3s ease;
+        }
+        
+        .dropdown-menu a:hover {
+            background: var(--light-color);
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .dropdown-menu {
+                position: static;
+                box-shadow: none;
+                background: var(--light-color);
+                display: none;
+            }
+            
+            .main-menu li.active .dropdown-menu {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <h1>Rent<span>Ease</span> Melbourne</h1>
+                </a>
+            </div>
+            <nav>
+                <ul class="main-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="properties.html">Properties</a></li>
+                    <li>
+                        <a href="#">Special Housing</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="student-housing.html">Student Housing</a></li>
+                            <li><a href="corporate-rentals.html">Corporate Rentals</a></li>
+                            <li><a href="family-housing.html">Family Housing</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Banner -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Family Housing in Melbourne</h1>
+                <p>Find your perfect family home in Melbourne's most family-friendly suburbs</p>
+                <div class="search-container">
+                    <form id="family-search-form">
+                        <div class="search-box">
+                            <input type="text" placeholder="Enter suburb or school zone">
+                            <select>
+                                <option value="">Property Type</option>
+                                <option value="house">House</option>
+                                <option value="townhouse">Townhouse</option>
+                                <option value="duplex">Duplex</option>
+                                <option value="apartment">Large Apartment</option>
+                            </select>
+                            <select>
+                                <option value="">Weekly Budget</option>
+                                <option value="400-500">$400 - $500</option>
+                                <option value="500-600">$500 - $600</option>
+                                <option value="600-700">$600 - $700</option>
+                                <option value="700+">$700+</option>
+                            </select>
+                            <button type="submit" class="btn btn-primary">Search</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Family-Friendly Neighborhoods -->
+    <section class="neighborhood-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Family-Friendly Neighborhoods</h2>
+                <p>Discover Melbourne's best suburbs for families</p>
+            </div>
+            
+            <div class="neighborhood-grid">
+                <!-- Brighton Area -->
+                <div class="neighborhood-card">
+                    <div class="neighborhood-image">
+                        <img src="images/brighton.jpg" alt="Brighton Area">
+                    </div>
+                    <div class="neighborhood-content">
+                        <h3>Brighton</h3>
+                        <p>Beachside family living with excellent schools</p>
+                        <div class="amenities-list">
+                            <span class="amenity-tag"><i class="fas fa-school"></i> Top Schools</span>
+                            <span class="amenity-tag"><i class="fas fa-beach-umbrella"></i> Beach Access</span>
+                            <span class="amenity-tag"><i class="fas fa-train"></i> Train Station</span>
+                        </div>
+                        <div class="school-info">
+                            <h4>Nearby Schools</h4>
+                            <ul class="school-list">
+                                <li class="school-item"><i class="fas fa-graduation-cap"></i> Brighton Primary</li>
+                                <li class="school-item"><i class="fas fa-graduation-cap"></i> Brighton Secondary</li>
+                            </ul>
+                        </div>
+                        <a href="properties.html?area=brighton" class="btn btn-secondary">View Properties</a>
+                    </div>
+                </div>
+
+                <!-- Camberwell Area -->
+                <div class="neighborhood-card">
+                    <div class="neighborhood-image">
+                        <img src="images/camberwell.jpg" alt="Camberwell Area">
+                    </div>
+                    <div class="neighborhood-content">
+                        <h3>Camberwell</h3>
+                        <p>Leafy streets and family-oriented community</p>
+                        <div class="amenities-list">
+                            <span class="amenity-tag"><i class="fas fa-tree"></i> Parks</span>
+                            <span class="amenity-tag"><i class="fas fa-shopping-cart"></i> Shopping</span>
+                            <span class="amenity-tag"><i class="fas fa-tram"></i> Tram Access</span>
+                        </div>
+                        <div class="school-info">
+                            <h4>Nearby Schools</h4>
+                            <ul class="school-list">
+                                <li class="school-item"><i class="fas fa-graduation-cap"></i> Camberwell Primary</li>
+                                <li class="school-item"><i class="fas fa-graduation-cap"></i> Canterbury Girls</li>
+                            </ul>
+                        </div>
+                        <a href="properties.html?area=camberwell" class="btn btn-secondary">View Properties</a>
+                    </div>
+                </div>
+
+                <!-- Balwyn Area -->
+                <div class="neighborhood-card">
+                    <div class="neighborhood-image">
+                        <img src="images/balwyn.jpg" alt="Balwyn Area">
+                    </div>
+                    <div class="neighborhood-content">
+                        <h3>Balwyn</h3>
+                        <p>Premium family living with excellent amenities</p>
+                        <div class="amenities-list">
+                            <span class="amenity-tag"><i class="fas fa-school"></i> Top Schools</span>
+                            <span class="amenity-tag"><i class="fas fa-park"></i> Parks</span>
+                            <span class="amenity-tag"><i class="fas fa-bus"></i> Transport</span>
+                        </div>
+                        <div class="school-info">
+                            <h4>Nearby Schools</h4>
+                            <ul class="school-list">
+                                <li class="school-item"><i class="fas fa-graduation-cap"></i> Balwyn Primary</li>
+                                <li class="school-item"><i class="fas fa-graduation-cap"></i> Balwyn High</li>
+                            </ul>
+                        </div>
+                        <a href="properties.html?area=balwyn" class="btn btn-secondary">View Properties</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Family-Friendly Features -->
+    <section class="service-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Family-Friendly Features</h2>
+                <p>What to look for in your family home</p>
+            </div>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h4>Spacious Living</h4>
+                    <p>Open plan living areas and multiple bedrooms for growing families</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tree"></i>
+                    </div>
+                    <h4>Outdoor Space</h4>
+                    <p>Private gardens and outdoor areas for children to play</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h4>Parking & Storage</h4>
+                    <p>Secure parking and ample storage for family needs</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h4>Safety Features</h4>
+                    <p>Child-safe features and secure entry systems</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Safety & Security Section -->
+    <section class="service-section" style="background-color: var(--light-color);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Safety & Security</h2>
+                <p>Ensuring your family's safety and comfort</p>
+            </div>
+            
+            <div class="safety-checklist">
+                <div class="checklist-item">
+                    <i class="fas fa-check-circle"></i>
+                    <div>
+                        <h4>Child Safety Features</h4>
+                        <p>All our family properties are assessed for child safety, including secure windows, safety gates, and covered power points.</p>
+                    </div>
+                </div>
+                
+                <div class="checklist-item">
+                    <i class="fas fa-check-circle"></i>
+                    <div>
+                        <h4>Neighborhood Security</h4>
+                        <p>Properties in safe, well-lit neighborhoods with active community watch programs.</p>
+                    </div>
+                </div>
+                
+                <div class="checklist-item">
+                    <i class="fas fa-check-circle"></i>
+                    <div>
+                        <h4>Emergency Services</h4>
+                        <p>Close proximity to hospitals, police stations, and emergency services.</p>
+                    </div>
+                </div>
+                
+                <div class="checklist-item">
+                    <i class="fas fa-check-circle"></i>
+                    <div>
+                        <h4>Regular Maintenance</h4>
+                        <p>Scheduled maintenance checks to ensure all safety features are working properly.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- School Zones Section -->
+    <section class="service-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>School Zones Guide</h2>
+                <p>Find properties in Melbourne's top school catchment areas</p>
+            </div>
+            
+            <div class="service-container">
+                <div class="service-content">
+                    <h3>Understanding School Zones</h3>
+                    <p>Melbourne's school zones can significantly impact your choice of family home. Our team can help you find properties within your preferred school catchment areas.</p>
+                    
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <h4>School Zone Search</h4>
+                            <p>Search properties by specific school zones and catchment areas.</p>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <h4>Education Resources</h4>
+                            <p>Information about local schools, including rankings and facilities.</p>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <h4>Transport Options</h4>
+                            <p>Details about school bus routes and public transport access.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-image">
+                    <img src="images/school-zone.jpg" alt="School Zone Map">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>Family Testimonials</h2>
+                <p>Hear from families who found their perfect home</p>
+            </div>
+            <div class="testimonial-slider">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"RentEase helped us find the perfect family home in a great school zone. The backyard is perfect for our kids, and we love the family-friendly neighborhood."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="images/testimonial9.jpg" alt="The Anderson Family">
+                        <div class="author-info">
+                            <h4>The Anderson Family</h4>
+                            <p>Brighton Residents</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Moving with three kids was daunting, but RentEase made it easy. They found us a home close to schools and parks, with all the space we needed."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="images/testimonial10.jpg" alt="The Patel Family">
+                        <div class="author-info">
+                            <h4>The Patel Family</h4>
+                            <p>Camberwell Residents</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Find Your Family Home?</h2>
+                <p>Let us help you find the perfect home for your family in Melbourne</p>
+                <div class="cta-buttons">
+                    <a href="properties.html" class="btn btn-primary">Browse Family Homes</a>
+                    <a href="contact.html" class="btn btn-secondary">Get Personalized Help</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <h3>About RentEase Melbourne</h3>
+                    <p>RentEase is a Victorian non-profit organization dedicated to connecting people with affordable housing options across Melbourne and providing resources for renters.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="properties.html">Properties</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Collins Street, Melbourne VIC 3000</p>
+                    <p><i class="fas fa-phone"></i> (03) 9123 4567</p>
+                    <p><i class="fas fa-envelope"></i> families@rentease.org.au</p>
+                </div>
+                <div class="footer-section newsletter">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter for updates on family-friendly properties and community events.</p>
+                    <form id="newsletter-form">
+                        <input type="email" placeholder="Your Email Address" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 RentEase Melbourne. All rights reserved.</p>
+                <p>We acknowledge the Traditional Owners of the land on which we operate, the Wurundjeri people of the Kulin Nation, and pay our respects to Elders past, present and emerging.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+
+    <!-- JavaScript Files -->
+    <script src="js/main.js"></script>
+</body>
+</html> 

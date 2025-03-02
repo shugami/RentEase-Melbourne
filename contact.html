@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact RentEase for assistance with finding affordable rental properties or to learn more about our non-profit services">
+    <meta name="keywords" content="contact, rental assistance, affordable housing, non-profit, real estate">
+    <meta name="author" content="RentEase">
+    <title>Contact Us - RentEase</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <!-- Open Graph tags for social media sharing -->
+    <meta property="og:title" content="Contact Us - RentEase">
+    <meta property="og:description" content="Contact RentEase for assistance with finding affordable rental properties or to learn more about our non-profit services">
+    <meta property="og:image" content="images/og-image.jpg">
+    <meta property="og:url" content="https://rentease.org/contact.html">
+    <style>
+        /* Additional styles specific to the contact page */
+        .contact-section {
+            padding: var(--spacing-xl) 0;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+        }
+        
+        .contact-info {
+            background-color: white;
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius-md);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .contact-info h3 {
+            margin-bottom: var(--spacing-sm);
+            font-size: 1.5rem;
+        }
+        
+        .contact-detail {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .contact-icon {
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+            margin-right: 15px;
+            margin-top: 5px;
+        }
+        
+        .contact-text h4 {
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+        
+        .contact-text p {
+            color: var(--text-light);
+            margin-bottom: 5px;
+        }
+        
+        .office-hours {
+            margin-top: var(--spacing-md);
+        }
+        
+        .office-hours h3 {
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .hours-list {
+            list-style: none;
+        }
+        
+        .hours-list li {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .hours-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .day {
+            font-weight: 500;
+        }
+        
+        .contact-form-container {
+            background-color: white;
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius-md);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .contact-form-container h3 {
+            margin-bottom: var(--spacing-sm);
+            font-size: 1.5rem;
+        }
+        
+        .contact-form .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .contact-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .contact-form input,
+        .contact-form select,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-sm);
+            font-family: var(--body-font);
+            font-size: 1rem;
+        }
+        
+        .contact-form textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .contact-form button {
+            padding: 12px 25px;
+            font-size: 1rem;
+        }
+        
+        .map-container {
+            margin-top: var(--spacing-lg);
+            border-radius: var(--border-radius-md);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            height: 400px;
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        @media (max-width: 768px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Add dropdown styles before the closing style tag */
+        .main-menu li {
+            position: relative;
+        }
+        
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            box-shadow: var(--box-shadow);
+            border-radius: var(--border-radius-sm);
+            min-width: 200px;
+            z-index: 1000;
+        }
+        
+        .main-menu li:hover .dropdown-menu {
+            display: block;
+        }
+        
+        .dropdown-menu li {
+            width: 100%;
+        }
+        
+        .dropdown-menu a {
+            padding: 10px 15px;
+            display: block;
+            color: var(--text-color);
+            transition: all 0.3s ease;
+        }
+        
+        .dropdown-menu a:hover {
+            background: var(--light-color);
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .dropdown-menu {
+                position: static;
+                box-shadow: none;
+                background: var(--light-color);
+                display: none;
+            }
+            
+            .main-menu li.active .dropdown-menu {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <h1>Rent<span>Ease</span></h1>
+                </a>
+            </div>
+            <nav>
+                <ul class="main-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="properties.html">Properties</a></li>
+                    <li>
+                        <a href="#">Special Housing</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="student-housing.html">Student Housing</a></li>
+                            <li><a href="corporate-rentals.html">Corporate Rentals</a></li>
+                            <li><a href="family-housing.html">Family Housing</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+                <div class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Banner -->
+    <section class="hero" style="padding: var(--spacing-lg) 0;">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Contact Us</h1>
+                <p>Get in touch with our team for assistance with your rental needs</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-container">
+                <!-- Contact Information -->
+                <div class="contact-info">
+                    <h3>Our Contact Information</h3>
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Office Address</h4>
+                            <p>123 Rental Ave, Suite 101</p>
+                            <p>City, State 12345</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Phone Numbers</h4>
+                            <p>Main: (123) 456-7890</p>
+                            <p>Support: (123) 456-7891</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Email Addresses</h4>
+                            <p>General Inquiries: info@rentease.org</p>
+                            <p>Support: support@rentease.org</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Social Media</h4>
+                            <div class="social-links" style="margin-top: 10px;">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="office-hours">
+                        <h3>Office Hours</h3>
+                        <ul class="hours-list">
+                            <li>
+                                <span class="day">Monday - Friday</span>
+                                <span class="time">9:00 AM - 6:00 PM</span>
+                            </li>
+                            <li>
+                                <span class="day">Saturday</span>
+                                <span class="time">10:00 AM - 4:00 PM</span>
+                            </li>
+                            <li>
+                                <span class="day">Sunday</span>
+                                <span class="time">Closed</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="contact-form-container">
+                    <h3>Send Us a Message</h3>
+                    <form class="contact-form" id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Select a subject</option>
+                                <option value="property-inquiry">Property Inquiry</option>
+                                <option value="rental-assistance">Rental Assistance</option>
+                                <option value="general-question">General Question</option>
+                                <option value="feedback">Feedback</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Map -->
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.215266754809!2d-73.98784492426285!3d40.75798657138946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25855c6480299%3A0x55194ec5a1ae072e!2sTimes%20Square!5m2!1s0x89c25855c6480299%3A0x55194ec5a1ae072e!2sTimes%20Square" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="services" style="padding-top: 0;">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+                <p>Find answers to common questions about our services</p>
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How do I apply for a rental property?</h3>
+                        <p>To apply for a rental property, you can fill out an application form online through our website or visit our office in person. You'll need to provide identification, proof of income, and references.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What types of rental assistance do you offer?</h3>
+                        <p>As a non-profit organization, we offer various forms of rental assistance including help with security deposits, application fee waivers for qualifying individuals, and guidance on government housing programs.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How long does the application process take?</h3>
+                        <p>The application process typically takes 2-3 business days, which includes background checks, credit checks, and contacting references. We strive to make the process as efficient as possible.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Do you charge an application fee?</h3>
+                        <p>Yes, there is a standard application fee of $25 per applicant to cover the cost of background and credit checks. However, this fee may be waived for qualifying low-income applicants.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <h3>About RentEase</h3>
+                    <p>RentEase is a non-profit organization dedicated to connecting people with affordable housing options and providing resources for renters.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="properties.html">Properties</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Rental Ave, Suite 101, City, State 12345</p>
+                    <p><i class="fas fa-phone"></i> (123) 456-7890</p>
+                    <p><i class="fas fa-envelope"></i> info@rentease.org</p>
+                </div>
+                <div class="footer-section newsletter">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter for updates on new properties and housing resources.</p>
+                    <form id="newsletter-form">
+                        <input type="email" placeholder="Your Email Address" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 RentEase. All rights reserved. A non-profit organization.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+
+    <!-- JavaScript Files -->
+    <script src="js/main.js"></script>
+    <script>
+        // Contact Form Submission
+        const contactForm = document.getElementById('contact-form');
+        
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // In a real application, you would send this data to a server
+                // For this static demo, we'll just show a success message
+                
+                const formData = new FormData(contactForm);
+                const formValues = {};
+                
+                for (let [key, value] of formData.entries()) {
+                    formValues[key] = value;
+                }
+                
+                // Create success message
+                const successMessage = document.createElement('div');
+                successMessage.innerHTML = `
+                    <h3>Thank You for Contacting Us!</h3>
+                    <p>We have received your message and will get back to you shortly.</p>
+                    <p>Your reference number: REF-${Math.floor(Math.random() * 10000)}</p>
+                `;
+                successMessage.style.textAlign = 'center';
+                successMessage.style.padding = '20px';
+                
+                // Replace form with success message
+                contactForm.innerHTML = '';
+                contactForm.appendChild(successMessage);
+                
+                // Scroll to success message
+                successMessage.scrollIntoView({ behavior: 'smooth' });
+            });
+        }
+    </script>
+</body>
+</html> 

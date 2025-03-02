@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comprehensive rental services in Melbourne - property search, tenant advocacy, financial guidance, and more for students, families, and professionals">
+    <meta name="keywords" content="Melbourne rental services, property management, tenant advocacy, rental assistance, student housing, corporate rentals, family homes">
+    <meta name="author" content="RentEase Melbourne">
+    <title>Our Services - RentEase Melbourne</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <!-- Open Graph tags for social media sharing -->
+    <meta property="og:title" content="Our Services - RentEase Melbourne">
+    <meta property="og:description" content="Comprehensive rental services in Melbourne - property search, tenant advocacy, financial guidance, and more for students, families, and professionals">
+    <meta property="og:image" content="images/og-image.jpg">
+    <meta property="og:url" content="https://rentease.org.au/services.html">
+    <style>
+        /* Additional styles specific to the services page */
+        .service-section {
+            padding: var(--spacing-xl) 0;
+        }
+        
+        .service-section:nth-child(even) {
+            background-color: var(--light-color);
+        }
+        
+        .service-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-lg);
+            align-items: center;
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .service-container:last-child {
+            margin-bottom: 0;
+        }
+        
+        .service-image {
+            flex: 1;
+            min-width: 300px;
+            border-radius: var(--border-radius-md);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .service-content {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .service-content h2 {
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .service-content p {
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .service-features {
+            margin: var(--spacing-md) 0;
+        }
+        
+        .service-feature {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .service-feature i {
+            color: var(--secondary-color);
+            margin-right: 15px;
+            font-size: 1.2rem;
+            margin-top: 3px;
+        }
+        
+        .service-feature-content {
+            flex: 1;
+        }
+        
+        .service-feature-content h4 {
+            margin-bottom: 5px;
+        }
+        
+        .service-cta {
+            margin-top: var(--spacing-md);
+        }
+        
+        .service-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: var(--spacing-md);
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .service-tab {
+            padding: 15px 25px;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .service-tab.active {
+            border-bottom-color: var(--secondary-color);
+            color: var(--secondary-color);
+        }
+        
+        .service-tab:hover {
+            color: var(--secondary-color);
+        }
+        
+        .service-panel {
+            display: none;
+        }
+        
+        .service-panel.active {
+            display: block;
+        }
+        
+        @media (max-width: 768px) {
+            .service-container {
+                flex-direction: column;
+            }
+            
+            .service-container:nth-child(even) {
+                flex-direction: column-reverse;
+            }
+            
+            .service-image, .service-content {
+                width: 100%;
+            }
+        }
+
+        /* Add dropdown styles before the closing style tag */
+        .main-menu li {
+            position: relative;
+        }
+        
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            box-shadow: var(--box-shadow);
+            border-radius: var(--border-radius-sm);
+            min-width: 200px;
+            z-index: 1000;
+        }
+        
+        .main-menu li:hover .dropdown-menu {
+            display: block;
+        }
+        
+        .dropdown-menu li {
+            width: 100%;
+        }
+        
+        .dropdown-menu a {
+            padding: 10px 15px;
+            display: block;
+            color: var(--text-color);
+            transition: all 0.3s ease;
+        }
+        
+        .dropdown-menu a:hover {
+            background: var(--light-color);
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .dropdown-menu {
+                position: static;
+                box-shadow: none;
+                background: var(--light-color);
+                display: none;
+            }
+            
+            .main-menu li.active .dropdown-menu {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <h1>Rent<span>Ease</span> Melbourne</h1>
+                </a>
+            </div>
+            <nav>
+                <ul class="main-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="properties.html">Properties</a></li>
+                    <li>
+                        <a href="#">Special Housing</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="student-housing.html">Student Housing</a></li>
+                            <li><a href="corporate-rentals.html">Corporate Rentals</a></li>
+                            <li><a href="family-housing.html">Family Housing</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html" class="active">Services</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Banner -->
+    <section class="hero" style="padding: var(--spacing-lg) 0;">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Our Services</h1>
+                <p>Comprehensive rental solutions for everyone in Melbourne</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Navigation -->
+    <section class="service-section" style="padding-bottom: 0;">
+        <div class="container">
+            <div class="section-header">
+                <h2>How We Can Help You</h2>
+                <p>Explore our range of services designed to make renting in Melbourne easier</p>
+            </div>
+            
+            <div class="service-tabs">
+                <div class="service-tab active" data-target="property-search">Property Search</div>
+                <div class="service-tab" data-target="tenant-advocacy">Tenant Advocacy</div>
+                <div class="service-tab" data-target="financial-guidance">Financial Guidance</div>
+                <div class="service-tab" data-target="specialized-housing">Specialized Housing</div>
+                <div class="service-tab" data-target="community-support">Community Support</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Property Search Service -->
+    <section class="service-section service-panel active" id="property-search">
+        <div class="container">
+            <div class="service-container">
+                <div class="service-image">
+                    <img src="images/property-search-service.jpg" alt="Property Search Service">
+                </div>
+                <div class="service-content">
+                    <h2>Property Search & Matching</h2>
+                    <p>Finding the perfect rental property in Melbourne's competitive market can be challenging. Our property search service is designed to save you time and connect you with homes that truly match your needs.</p>
+                    
+                    <div class="service-features">
+                        <div class="service-feature">
+                            <i class="fas fa-search"></i>
+                            <div class="service-feature-content">
+                                <h4>Personalized Property Matching</h4>
+                                <p>Our team takes the time to understand your specific requirements, preferences, and budget to match you with suitable properties across Melbourne.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="service-feature">
+                            <i class="fas fa-map-marked-alt"></i>
+                            <div class="service-feature-content">
+                                <h4>Suburb Guidance</h4>
+                                <p>Not sure which Melbourne suburb is right for you? We provide detailed information about different areas, including amenities, transport options, and community features.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="service-feature">
+                            <i class="fas fa-calendar-check"></i>
+                            <div class="service-feature-content">
+                                <h4>Inspection Coordination</h4>
+                                <p>We can arrange and coordinate property inspections to fit your schedule, saving you time and ensuring you don't miss out on potential homes.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="service-feature">
+                            <i class="fas fa-bell"></i>
+                            <div class="service-feature-content">
+                                <h4>Property Alerts</h4>
+                                <p>Sign up for our property alerts to receive notifications when new rentals matching your criteria become available in your preferred Melbourne suburbs.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-cta">
+                        <a href="properties.html" class="btn btn-primary">Browse Properties</a>
+                        <a href="contact.html" class="btn btn-secondary">Request Personalized Search</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tenant Advocacy Service -->
+    <section class="service-section service-panel" id="tenant-advocacy">
+        <div class="container">
+            <div class="service-container">
+                <div class="service-content">
+                    <h2>Tenant Advocacy & Support</h2>
+                    <p>Navigating Victorian rental laws and dealing with landlords can be complex. Our tenant advocacy service provides guidance and support to ensure your rights are protected throughout your tenancy.</p>
+                    
+                    <div class="service-features">
+                        <div class="service-feature">
+                            <i class="fas fa-gavel"></i>
+                            <div class="service-feature-content">
+                                <h4>Rental Agreement Review</h4>
+                                <p>Our team can review your lease agreement before you sign, explaining key terms and conditions and identifying any potential issues.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="service-feature">
+                            <i class="fas fa-tools"></i>
+                            <div class="service-feature-content">
+                                <h4>Repairs & Maintenance Assistance</h4>
+                                <p>Get help with requesting repairs, understanding landlord obligations, and following up on maintenance issues in your rental property.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="service-feature">
+                            <i class="fas fa-balance-scale"></i>
+                            <div class="service-feature-content">
+                                <h4>Dispute Resolution</h4>
+                                <p>Receive guidance on resolving disputes with landlords or property managers, including preparation for VCAT (Victorian Civil and Administrative Tribunal) hearings if necessary.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="service-feature">
+                            <i class="fas fa-file-contract"></i>
+                            <div class="service-feature-content">
+                                <h4>End of Lease Support</h4>
+                                <p>Get assistance with bond returns, property condition reports, and ensuring a smooth transition when your tenancy ends.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-cta">
+                        <a href="resources.html#tenant-rights" class="btn btn-primary">Tenant Rights Resources</a>
+                        <a href="contact.html" class="btn btn-secondary">Request Advocacy Support</a>
+                    </div>
+                </div>
+                <div class="service-image">
+                    <img src="images/tenant-advocacy.jpg" alt="Tenant Advocacy Service">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Financial Guidance Service -->
+    <section class="service-section service-panel" id="financial-guidance">
+        <div class="container">
+            <div class="service-container">
+                <div class="service-image">
+                    <img src="images/financial-guidance.jpg" alt="Financial Guidance Service">
+                </div>
+                <div class="service-content">
+                    <h2>Financial Guidance & Assistance</h2>
+                    <p>Renting in Melbourne can be expensive, but there are various financial assistance programs available. Our financial guidance service helps you navigate these options and manage your rental budget effectively.</p>
+                    
+                    <div class="service-features">
+                        <div class="service-feature">
+                            <i class="fas fa-hand-holding-usd"></i>
+                            <div class="service-feature-content">
+                                <h4>Rent Assistance Programs</h4>
+                                <p>Get information and application support for Centrelink Rent Assistance and other government programs to help with rental costs.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="service-feature">
+                            <i class="fas fa-piggy-bank"></i>
+                            <div class="service-feature-content">
+                                <h4>Bond Loan Guidance</h4>
+                                <p>Learn about interest-free bond loans available through the Victorian Government and get help with the application process.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="service-feature">
+                            <i class="fas fa-calculator"></i>
+                            <div class="service-feature-content">
+                                <h4>Rental Budget Planning</h4>
+                                <p>Work with our team to create a sustainable rental budget that considers all housing costs, including utilities, insurance, and maintenance.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="service-feature">
+                            <i class="fas fa-life-ring"></i>
+                            <div class="service-feature-content">
+                                <h4>Hardship Support</h4>
+                                <p>Access guidance on financial hardship programs and emergency assistance if you're experiencing difficulty paying rent due to unexpected circumstances.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-cta">
+                        <a href="resources.html#financial-assistance" class="btn btn-primary">Financial Resources</a>
+                        <a href="contact.html" class="btn btn-secondary">Request Financial Guidance</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specialized Housing Service -->
+    <section class="service-section service-panel" id="specialized-housing">
+        <div class="container">
+            <div class="service-container">
+                <div class="service-content">
+                    <h2>Specialized Housing Solutions</h2>
+                    <p>Different renters have different needs. Our specialized housing service provides tailored support for specific groups, including students, corporate professionals, families, and those with accessibility requirements.</p>
+                    
+                    <div class="service-features">
+                        <div class="service-feature">
+                            <i class="fas fa-graduation-cap"></i>
+                            <div class="service-feature-content">
+                                <h4>Student Housing</h4>
+                                <p>Specialized assistance for domestic and international students, including accommodation near universities, share housing options, and student-friendly budgeting advice.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="service-feature">
+                            <i class="fas fa-briefcase"></i>
+                            <div class="service-feature-content">
+                                <h4>Corporate Rentals</h4>
+                                <p>Support for professionals relocating to Melbourne, including executive rentals, short-term leases, and properties with home office facilities.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="service-feature">
+                            <i class="fas fa-home"></i>
+                            <div class="service-feature-content">
+                                <h4>Family-Friendly Housing</h4>
+                                <p>Help finding suitable homes for families, with consideration for school zones, child-friendly neighborhoods, and properties with adequate space and safety features.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="service-feature">
+                            <i class="fas fa-wheelchair"></i>
+                            <div class="service-feature-content">
+                                <h4>Accessible Housing</h4>
+                                <p>Assistance finding properties with accessibility features for people with disabilities or mobility requirements.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-cta">
+                        <a href="student-housing.html" class="btn btn-primary">Student Housing</a>
+                        <a href="corporate-rentals.html" class="btn btn-secondary">Corporate Rentals</a>
+                        <a href="family-housing.html" class="btn btn-tertiary">Family Housing</a>
+                    </div>
+                </div>
+                <div class="service-image">
+                    <img src="images/specialized-housing.jpg" alt="Specialized Housing Solutions">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Support Service -->
+    <section class="service-section service-panel" id="community-support">
+        <div class="container">
+            <div class="service-container">
+                <div class="service-image">
+                    <img src="images/community-support.jpg" alt="Community Support Service">
+                </div>
+                <div class="service-content">
+                    <h2>Community Support & Education</h2>
+                    <p>Beyond finding a rental property, we're committed to building stronger communities and empowering renters through education and support programs.</p>
+                    
+                    <div class="service-features">
+                        <div class="service-feature">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                            <div class="service-feature-content">
+                                <h4>Renter Workshops</h4>
+                                <p>Free educational workshops covering topics such as tenant rights, rental applications, budgeting, and sustainable living in rental properties.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="service-feature">
+                            <i class="fas fa-users"></i>
+                            <div class="service-feature-content">
+                                <h4>Community Connections</h4>
+                                <p>Programs to help new renters connect with their local Melbourne communities, including neighborhood guides and community events.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="service-feature">
+                            <i class="fas fa-language"></i>
+                            <div class="service-feature-content">
+                                <h4>Multicultural Support</h4>
+                                <p>Specialized assistance for culturally and linguistically diverse communities, including translated resources and culturally sensitive support.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="service-feature">
+                            <i class="fas fa-hands-helping"></i>
+                            <div class="service-feature-content">
+                                <h4>Housing Advocacy</h4>
+                                <p>Participation in broader advocacy efforts to improve rental conditions and affordability in Melbourne and across Victoria.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-cta">
+                        <a href="events.html" class="btn btn-primary">Upcoming Workshops</a>
+                        <a href="blog.html" class="btn btn-secondary">Community Blog</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Our Clients Say About Our Services</h2>
+                <p>Real experiences from people we've helped across Melbourne</p>
+            </div>
+            <div class="testimonial-slider">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"The property matching service saved me so much time. After explaining what I was looking for, RentEase presented me with options that perfectly matched my needs. Within a week, I had signed a lease for an apartment I love."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="images/testimonial4.jpg" alt="David Thompson">
+                        <div class="author-info">
+                            <h4>David Thompson</h4>
+                            <p>Corporate Professional</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"As an international student, I was completely lost when it came to Melbourne's rental market. The student housing team at RentEase guided me through every step and helped me find affordable accommodation near my university."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="images/testimonial5.jpg" alt="Priya Sharma">
+                        <div class="author-info">
+                            <h4>Priya Sharma</h4>
+                            <p>International Student</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"When we had a dispute with our landlord over repairs, RentEase's tenant advocacy service was invaluable. They helped us understand our rights and communicate effectively with the property manager, resulting in a positive outcome."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="images/testimonial6.jpg" alt="The Rodriguez Family">
+                        <div class="author-info">
+                            <h4>The Rodriguez Family</h4>
+                            <p>Tenant Advocacy Client</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-navigation">
+                    <button class="prev-btn"><i class="fas fa-chevron-left"></i></button>
+                    <button class="next-btn"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Experience Our Services?</h2>
+                <p>Contact us today to discuss how we can help with your Melbourne housing needs</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-primary">Contact Us</a>
+                    <a href="properties.html" class="btn btn-secondary">Browse Properties</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <h3>About RentEase Melbourne</h3>
+                    <p>RentEase is a Victorian non-profit organization dedicated to connecting people with affordable housing options across Melbourne and providing resources for renters.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="properties.html">Properties</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Collins Street, Melbourne VIC 3000</p>
+                    <p><i class="fas fa-phone"></i> (03) 9123 4567</p>
+                    <p><i class="fas fa-envelope"></i> info@rentease.org.au</p>
+                </div>
+                <div class="footer-section newsletter">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter for updates on new Melbourne properties and housing resources.</p>
+                    <form id="newsletter-form">
+                        <input type="email" placeholder="Your Email Address" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 RentEase Melbourne. All rights reserved. A Victorian non-profit organization.</p>
+                <p>We acknowledge the Traditional Owners of the land on which we operate, the Wurundjeri people of the Kulin Nation, and pay our respects to Elders past, present and emerging.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+
+    <!-- JavaScript Files -->
+    <script src="js/main.js"></script>
+    <script>
+        // Service Tabs Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.service-tab');
+            const panels = document.querySelectorAll('.service-panel');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Remove active class from all tabs
+                    tabs.forEach(t => t.classList.remove('active'));
+                    
+                    // Add active class to clicked tab
+                    this.classList.add('active');
+                    
+                    // Hide all panels
+                    panels.forEach(panel => panel.classList.remove('active'));
+                    
+                    // Show the corresponding panel
+                    const targetPanel = document.getElementById(this.getAttribute('data-target'));
+                    if (targetPanel) {
+                        targetPanel.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Frequently Asked Questions about renting in Melbourne - Find answers to common rental queries">
+    <meta name="keywords" content="rental FAQ, Melbourne rental questions, tenant rights, rental process, lease agreement">
+    <meta name="author" content="RentEase Melbourne">
+    <title>FAQ - RentEase Melbourne</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <style>
+        /* Additional styles specific to FAQ page */
+        .faq-section {
+            padding: var(--spacing-xl) 0;
+        }
+        
+        .faq-categories {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-md);
+            margin: var(--spacing-lg) 0;
+            flex-wrap: wrap;
+        }
+        
+        .category-btn {
+            padding: 10px 20px;
+            border: 2px solid var(--primary-color);
+            border-radius: var(--border-radius-md);
+            background: transparent;
+            color: var(--primary-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .category-btn:hover,
+        .category-btn.active {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: white;
+            border-radius: var(--border-radius-md);
+            box-shadow: var(--box-shadow);
+            margin-bottom: var(--spacing-md);
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: var(--spacing-md);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            background-color: var(--light-color);
+        }
+        
+        .faq-question h3 {
+            margin: 0;
+            font-size: 1.1rem;
+            color: var(--text-color);
+        }
+        
+        .faq-question i {
+            color: var(--primary-color);
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-answer {
+            padding: 0 var(--spacing-md);
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: var(--spacing-md);
+            max-height: 500px;
+        }
+        
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+        
+        .search-faq {
+            max-width: 600px;
+            margin: 0 auto var(--spacing-lg);
+        }
+        
+        .search-faq input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid var(--border-color);
+            border-radius: var(--border-radius-md);
+            font-size: 1rem;
+        }
+        
+        .search-faq input:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+        
+        .related-articles {
+            background: var(--light-color);
+            padding: var(--spacing-xl) 0;
+            margin-top: var(--spacing-xl);
+        }
+        
+        .article-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+        
+        .article-card {
+            background: white;
+            border-radius: var(--border-radius-md);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .article-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .article-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .article-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .article-content {
+            padding: var(--spacing-md);
+        }
+        
+        .article-content h3 {
+            margin-bottom: var(--spacing-sm);
+            color: var(--text-color);
+        }
+        
+        .article-content p {
+            margin-bottom: var(--spacing-md);
+            color: var(--text-muted);
+        }
+
+        /* Add dropdown styles before the closing style tag */
+        .main-menu li {
+            position: relative;
+        }
+        
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            box-shadow: var(--box-shadow);
+            border-radius: var(--border-radius-sm);
+            min-width: 200px;
+            z-index: 1000;
+        }
+        
+        .main-menu li:hover .dropdown-menu {
+            display: block;
+        }
+        
+        .dropdown-menu li {
+            width: 100%;
+        }
+        
+        .dropdown-menu a {
+            padding: 10px 15px;
+            display: block;
+            color: var(--text-color);
+            transition: all 0.3s ease;
+        }
+        
+        .dropdown-menu a:hover {
+            background: var(--light-color);
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .dropdown-menu {
+                position: static;
+                box-shadow: none;
+                background: var(--light-color);
+                display: none;
+            }
+            
+            .main-menu li.active .dropdown-menu {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <h1>Rent<span>Ease</span> Melbourne</h1>
+                </a>
+            </div>
+            <nav>
+                <ul class="main-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="properties.html">Properties</a></li>
+                    <li>
+                        <a href="#">Special Housing</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="student-housing.html">Student Housing</a></li>
+                            <li><a href="corporate-rentals.html">Corporate Rentals</a></li>
+                            <li><a href="family-housing.html">Family Housing</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Banner -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Frequently Asked Questions</h1>
+                <p>Find answers to common questions about renting in Melbourne</p>
+                <div class="search-faq">
+                    <input type="text" placeholder="Search FAQ...">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Categories -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="faq-categories">
+                <button class="category-btn active">All</button>
+                <button class="category-btn">Application Process</button>
+                <button class="category-btn">Lease & Payments</button>
+                <button class="category-btn">Property Management</button>
+                <button class="category-btn">Moving In/Out</button>
+                <button class="category-btn">Tenant Rights</button>
+            </div>
+
+            <div class="faq-container">
+                <!-- Application Process -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What documents do I need to apply for a rental property?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>To apply for a rental property in Melbourne, you typically need:</p>
+                        <ul>
+                            <li>Photo ID (driver's license, passport)</li>
+                            <li>Proof of income (payslips, employment contract)</li>
+                            <li>Rental history and references</li>
+                            <li>Bank statements</li>
+                            <li>Centrelink statements (if applicable)</li>
+                            <li>Character references</li>
+                        </ul>
+                        <p>International students may also need to provide:</p>
+                        <ul>
+                            <li>Student visa documentation</li>
+                            <li>Confirmation of enrollment</li>
+                            <li>Proof of funds or sponsorship</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Lease & Payments -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How much bond do I need to pay?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>In Victoria, the bond amount is typically:</p>
+                        <ul>
+                            <li>One month's rent for properties under $900 per week</li>
+                            <li>Up to six weeks' rent for properties over $900 per week</li>
+                        </ul>
+                        <p>The bond must be lodged with the Residential Tenancies Bond Authority (RTBA) within 10 business days.</p>
+                    </div>
+                </div>
+
+                <!-- Property Management -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What maintenance am I responsible for as a tenant?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>As a tenant, you are responsible for:</p>
+                        <ul>
+                            <li>Keeping the property clean and tidy</li>
+                            <li>Garden maintenance (if specified in lease)</li>
+                            <li>Replacing light bulbs</li>
+                            <li>Basic pest control (e.g., insects)</li>
+                            <li>Reporting maintenance issues promptly</li>
+                        </ul>
+                        <p>The landlord is responsible for ensuring the property is in good repair and maintaining essential services.</p>
+                    </div>
+                </div>
+
+                <!-- Moving In/Out -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What should I do before moving out?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Before moving out, ensure you:</p>
+                        <ul>
+                            <li>Give appropriate notice (usually 28 days)</li>
+                            <li>Clean the property thoroughly</li>
+                            <li>Complete any repairs</li>
+                            <li>Take photos for documentation</li>
+                            <li>Arrange a final inspection</li>
+                            <li>Return all keys</li>
+                            <li>Update your address</li>
+                            <li>Disconnect utilities</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Tenant Rights -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What are my rights regarding rent increases?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>In Victoria, rent increases are regulated:</p>
+                        <ul>
+                            <li>Rent can only be increased once every 12 months</li>
+                            <li>60 days written notice is required</li>
+                            <li>The increase must be reasonable</li>
+                            <li>You can challenge excessive increases through VCAT</li>
+                        </ul>
+                        <p>Contact Consumer Affairs Victoria for more information about your rights regarding rent increases.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Articles -->
+    <section class="related-articles">
+        <div class="container">
+            <div class="section-header">
+                <h2>Related Resources</h2>
+                <p>Explore our guides and articles for more detailed information</p>
+            </div>
+            
+            <div class="article-grid">
+                <div class="article-card">
+                    <div class="article-image">
+                        <img src="images/rental-guide.jpg" alt="Complete Rental Guide">
+                    </div>
+                    <div class="article-content">
+                        <h3>Complete Rental Guide</h3>
+                        <p>Everything you need to know about renting in Melbourne</p>
+                        <a href="#" class="btn btn-secondary">Read More</a>
+                    </div>
+                </div>
+                
+                <div class="article-card">
+                    <div class="article-image">
+                        <img src="images/tenant-rights.jpg" alt="Tenant Rights">
+                    </div>
+                    <div class="article-content">
+                        <h3>Know Your Rights</h3>
+                        <p>Understanding tenant rights and responsibilities</p>
+                        <a href="#" class="btn btn-secondary">Read More</a>
+                    </div>
+                </div>
+                
+                <div class="article-card">
+                    <div class="article-image">
+                        <img src="images/moving-checklist.jpg" alt="Moving Checklist">
+                    </div>
+                    <div class="article-content">
+                        <h3>Moving Checklist</h3>
+                        <p>Your complete guide to a smooth move</p>
+                        <a href="#" class="btn btn-secondary">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Still Have Questions?</h2>
+                <p>Our team is here to help you with any queries about renting in Melbourne</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-primary">Contact Us</a>
+                    <a href="resources.html" class="btn btn-secondary">View Resources</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <h3>About RentEase Melbourne</h3>
+                    <p>RentEase is a Victorian non-profit organization dedicated to connecting people with affordable housing options across Melbourne and providing resources for renters.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="properties.html">Properties</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Collins Street, Melbourne VIC 3000</p>
+                    <p><i class="fas fa-phone"></i> (03) 9123 4567</p>
+                    <p><i class="fas fa-envelope"></i> info@rentease.org.au</p>
+                </div>
+                <div class="footer-section newsletter">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter for updates on rental market trends and tips.</p>
+                    <form id="newsletter-form">
+                        <input type="email" placeholder="Your Email Address" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 RentEase Melbourne. All rights reserved.</p>
+                <p>We acknowledge the Traditional Owners of the land on which we operate, the Wurundjeri people of the Kulin Nation, and pay our respects to Elders past, present and emerging.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+
+    <!-- JavaScript Files -->
+    <script src="js/main.js"></script>
+    <script>
+        // FAQ Functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+
+        // FAQ Search Functionality
+        const searchInput = document.querySelector('.search-faq input');
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question h3').textContent.toLowerCase();
+                const answer = item.querySelector('.faq-answer').textContent.toLowerCase();
+                
+                if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+
+        // Category Filter
+        const categoryButtons = document.querySelectorAll('.category-btn');
+        
+        categoryButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                categoryButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                const category = button.textContent.toLowerCase();
+                
+                if (category === 'all') {
+                    faqItems.forEach(item => item.style.display = 'block');
+                } else {
+                    faqItems.forEach(item => {
+                        const question = item.querySelector('.faq-question h3').textContent.toLowerCase();
+                        if (question.includes(category)) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html> 

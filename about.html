@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn about RentEase Melbourne, a non-profit organization dedicated to providing affordable housing solutions across Victoria">
+    <meta name="keywords" content="RentEase Melbourne, affordable housing Victoria, non-profit housing organization, Melbourne rental assistance, housing advocacy Australia">
+    <meta name="author" content="RentEase Melbourne">
+    <title>About Us - RentEase Melbourne</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <!-- Open Graph tags for social media sharing -->
+    <meta property="og:title" content="About Us - RentEase Melbourne">
+    <meta property="og:description" content="Learn about RentEase Melbourne, a non-profit organization dedicated to providing affordable housing solutions across Victoria">
+    <meta property="og:image" content="images/og-image.jpg">
+    <meta property="og:url" content="https://rentease.org.au/about.html">
+    <style>
+        /* Additional styles specific to the about page */
+        .about-section {
+            padding: var(--spacing-xl) 0;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .about-text {
+            padding-right: var(--spacing-md);
+        }
+        
+        .about-text h2 {
+            margin-bottom: var(--spacing-sm);
+            color: var(--primary-color);
+        }
+        
+        .about-text p {
+            margin-bottom: var(--spacing-md);
+            line-height: 1.8;
+        }
+        
+        .about-image {
+            border-radius: var(--border-radius-md);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .mission-values {
+            background-color: var(--light-color);
+            padding: var(--spacing-xl) 0;
+        }
+        
+        .mission-values-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+        }
+        
+        .mission-card,
+        .values-card {
+            background-color: white;
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius-md);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .mission-card h2,
+        .values-card h2 {
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-sm);
+            padding-bottom: var(--spacing-sm);
+            border-bottom: 2px solid var(--light-color);
+        }
+        
+        .mission-card p {
+            margin-bottom: var(--spacing-md);
+            line-height: 1.8;
+        }
+        
+        .values-list {
+            list-style: none;
+        }
+        
+        .values-list li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: var(--spacing-sm);
+            padding-bottom: var(--spacing-sm);
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .values-list li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .value-icon {
+            background-color: var(--light-color);
+            color: var(--secondary-color);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .value-text h3 {
+            margin-bottom: 5px;
+            color: var(--secondary-color);
+        }
+        
+        .team-section {
+            padding: var(--spacing-xl) 0;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-md);
+        }
+        
+        .team-member {
+            background-color: white;
+            border-radius: var(--border-radius-md);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s ease;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+        
+        .member-image {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .member-info {
+            padding: var(--spacing-md);
+        }
+        
+        .member-info h3 {
+            margin-bottom: 5px;
+            color: var(--primary-color);
+        }
+        
+        .member-info h4 {
+            color: var(--secondary-color);
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+        
+        .member-info p {
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+        
+        .member-social {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .member-social a {
+            width: 35px;
+            height: 35px;
+            background-color: var(--light-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary-color);
+            transition: all 0.3s ease;
+        }
+        
+        .member-social a:hover {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+        
+        .history-section {
+            padding: var(--spacing-xl) 0;
+            background-color: var(--light-color);
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding-top: var(--spacing-md);
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--secondary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            width: 50%;
+            padding: 0 40px 50px 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            padding: 0 0 50px 40px;
+        }
+        
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+        
+        .timeline-content {
+            background-color: white;
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius-md);
+            box-shadow: var(--box-shadow);
+            position: relative;
+        }
+        
+        .timeline-content::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 4px solid var(--secondary-color);
+            border-radius: 50%;
+            top: 20px;
+            z-index: 1;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content::after {
+            right: -50px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content::after {
+            left: -50px;
+        }
+        
+        .timeline-year {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 5px 15px;
+            border-radius: var(--border-radius-sm);
+            margin-bottom: 10px;
+        }
+        
+        .timeline-content h3 {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .partners-section {
+            padding: var(--spacing-xl) 0;
+        }
+        
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-md);
+        }
+        
+        .partner-card {
+            background-color: white;
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius-md);
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .partner-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .partner-logo {
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+        
+        .partner-logo img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        
+        .partner-card h3 {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .partner-card p {
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        
+        @media (max-width: 992px) {
+            .about-content,
+            .mission-values-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-text {
+                padding-right: 0;
+                margin-bottom: var(--spacing-md);
+            }
+            
+            .timeline::after {
+                left: 40px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-right: 0;
+                padding-left: 80px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+                padding-left: 80px;
+            }
+            
+            .timeline-content::after {
+                left: -40px !important;
+                right: auto !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Dropdown styles */
+        .main-menu li {
+            position: relative;
+        }
+        
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            box-shadow: var(--box-shadow);
+            border-radius: var(--border-radius-sm);
+            min-width: 200px;
+            z-index: 1000;
+        }
+        
+        .main-menu li:hover .dropdown-menu {
+            display: block;
+        }
+        
+        .dropdown-menu li {
+            width: 100%;
+        }
+        
+        .dropdown-menu a {
+            padding: 10px 15px;
+            display: block;
+            color: var(--text-color);
+            transition: all 0.3s ease;
+        }
+        
+        .dropdown-menu a:hover {
+            background: var(--light-color);
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .dropdown-menu {
+                position: static;
+                box-shadow: none;
+                background: var(--light-color);
+                display: none;
+            }
+            
+            .main-menu li.active .dropdown-menu {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <h1>Rent<span>Ease</span> Melbourne</h1>
+                </a>
+            </div>
+            <nav>
+                <ul class="main-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="properties.html">Properties</a></li>
+                    <li>
+                        <a href="#">Special Housing</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="student-housing.html">Student Housing</a></li>
+                            <li><a href="corporate-rentals.html">Corporate Rentals</a></li>
+                            <li><a href="family-housing.html">Family Housing</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="about.html" class="active">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Banner -->
+    <section class="hero" style="padding: var(--spacing-lg) 0;">
+        <div class="container">
+            <div class="hero-content">
+                <h1>About RentEase Melbourne</h1>
+                <p>Learn about our mission to provide affordable housing solutions across Victoria</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Who We Are</h2>
+                    <p>RentEase Melbourne is a Victorian non-profit organization established in 2010 with a clear mission: to connect Australians with affordable housing options and advocate for housing equity across Melbourne and Victoria.</p>
+                    <p>As housing affordability continues to be a significant challenge in Melbourne's competitive rental market, our team of dedicated housing professionals works tirelessly to bridge the gap between renters and quality, affordable housing options.</p>
+                    <p>We believe that safe, secure, and affordable housing is a fundamental right for all Victorians. Through our comprehensive property listings, support services, and educational resources, we help individuals and families navigate the complex rental landscape and find homes that meet their needs and budgets.</p>
+                    <p>Based in Melbourne's CBD, our organization serves communities across all of Melbourne's diverse suburbs, from the inner city to the outer growth corridors. We work closely with property owners, government agencies, and community organizations to increase the availability of affordable rental options and provide support to those facing housing challenges.</p>
+                </div>
+                <div class="about-image">
+                    <img src="images/about-melbourne.jpg" alt="RentEase Melbourne Office">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission and Values Section -->
+    <section class="mission-values">
+        <div class="container">
+            <div class="mission-values-container">
+                <div class="mission-card">
+                    <h2>Our Mission</h2>
+                    <p>RentEase Melbourne exists to create pathways to affordable, secure housing for all Victorians through innovative solutions, community partnerships, and advocacy.</p>
+                    <p>We are committed to:</p>
+                    <ul>
+                        <li>Connecting renters with affordable housing options across Melbourne and Victoria</li>
+                        <li>Providing education and resources on tenant rights and responsibilities under Victorian law</li>
+                        <li>Advocating for policy changes that increase housing affordability and security</li>
+                        <li>Supporting vulnerable communities, including low-income earners, students, seniors, and new migrants</li>
+                        <li>Collaborating with property owners to expand affordable rental opportunities</li>
+                    </ul>
+                </div>
+                <div class="values-card">
+                    <h2>Our Values</h2>
+                    <ul class="values-list">
+                        <li>
+                            <div class="value-icon">
+                                <i class="fas fa-home"></i>
+                            </div>
+                            <div class="value-text">
+                                <h3>Accessibility</h3>
+                                <p>We believe everyone deserves access to safe, secure, and affordable housing regardless of their background or circumstances.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="value-icon">
+                                <i class="fas fa-hands-helping"></i>
+                            </div>
+                            <div class="value-text">
+                                <h3>Community</h3>
+                                <p>We value the diverse communities of Melbourne and work to strengthen connections between renters, property owners, and support services.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="value-icon">
+                                <i class="fas fa-balance-scale"></i>
+                            </div>
+                            <div class="value-text">
+                                <h3>Equity</h3>
+                                <p>We are committed to addressing systemic barriers in the housing market and promoting fair access to rental opportunities.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="value-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <div class="value-text">
+                                <h3>Innovation</h3>
+                                <p>We continuously seek creative solutions to Melbourne's housing challenges through technology, partnerships, and new approaches.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="value-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="value-text">
+                                <h3>Integrity</h3>
+                                <p>We operate with transparency, honesty, and accountability in all our interactions with clients, partners, and the community.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Melbourne Team</h2>
+                <p>Meet the dedicated professionals working to improve housing accessibility across Victoria</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="images/team1.jpg" alt="Sarah Thompson">
+                    </div>
+                    <div class="member-info">
+                        <h3>Sarah Thompson</h3>
+                        <h4>Executive Director</h4>
+                        <p>With over 15 years of experience in housing policy and non-profit management, Sarah leads our organization with passion and vision. She previously worked with Housing Victoria and holds a Master's in Public Policy from the University of Melbourne.</p>
+                        <div class="member-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="images/team2.jpg" alt="David Nguyen">
+                    </div>
+                    <div class="member-info">
+                        <h3>David Nguyen</h3>
+                        <h4>Housing Services Manager</h4>
+                        <p>David oversees our property listings and landlord relationships. With a background in real estate and community development, he ensures our housing options meet the needs of Melbourne's diverse communities.</p>
+                        <div class="member-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="images/team3.jpg" alt="Amelia Patel">
+                    </div>
+                    <div class="member-info">
+                        <h3>Amelia Patel</h3>
+                        <h4>Tenant Support Coordinator</h4>
+                        <p>Amelia leads our tenant support services, helping renters navigate the Victorian rental market. She specializes in tenant rights education and advocacy, with particular focus on supporting vulnerable communities.</p>
+                        <div class="member-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="images/team4.jpg" alt="Michael Chen">
+                    </div>
+                    <div class="member-info">
+                        <h3>Michael Chen</h3>
+                        <h4>Community Outreach Manager</h4>
+                        <p>Michael develops and maintains our relationships with community organizations across Melbourne. He coordinates our outreach programs and ensures our services reach those who need them most.</p>
+                        <div class="member-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- History Section -->
+    <section class="history-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Melbourne Journey</h2>
+                <p>The story of RentEase Melbourne and our impact on Victoria's housing landscape</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-year">2010</span>
+                        <h3>Foundation</h3>
+                        <p>RentEase Melbourne was founded by a group of housing advocates and community leaders in response to Melbourne's growing housing affordability crisis. Our initial focus was on connecting low-income earners with affordable rental options in the inner suburbs.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-year">2013</span>
+                        <h3>Expansion to Outer Suburbs</h3>
+                        <p>As Melbourne's housing market continued to tighten, we expanded our services to include the outer growth corridors, recognizing the need for affordable housing options across the metropolitan area.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-year">2015</span>
+                        <h3>Launch of Tenant Support Services</h3>
+                        <p>We introduced comprehensive tenant support services, including education on Victorian rental laws, assistance with rental applications, and advocacy for tenants facing housing challenges.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-year">2018</span>
+                        <h3>Digital Platform Launch</h3>
+                        <p>Our online platform was launched, making it easier for Melburnians to search for affordable rental properties and access housing resources from anywhere in Victoria.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-year">2020</span>
+                        <h3>COVID-19 Response</h3>
+                        <p>During the pandemic, we pivoted to provide emergency housing support and rental assistance to Victorians affected by lockdowns and economic hardship, helping thousands of families maintain stable housing.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-year">2023</span>
+                        <h3>New Initiatives</h3>
+                        <p>Today, we continue to expand our services with innovative programs like our International Student Housing Support, Rental Guarantee Program, and Housing Advocacy Network across Melbourne.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="partners-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Victorian Partners</h2>
+                <p>Collaborating with organizations across Melbourne to improve housing accessibility</p>
+            </div>
+            <div class="partners-grid">
+                <div class="partner-card">
+                    <div class="partner-logo">
+                        <img src="images/partner1.jpg" alt="City of Melbourne">
+                    </div>
+                    <h3>City of Melbourne</h3>
+                    <p>Working together on affordable housing initiatives in Melbourne's CBD and inner suburbs.</p>
+                </div>
+                <div class="partner-card">
+                    <div class="partner-logo">
+                        <img src="images/partner2.jpg" alt="Housing Victoria">
+                    </div>
+                    <h3>Housing Victoria</h3>
+                    <p>Collaborating on public housing referrals and community housing projects.</p>
+                </div>
+                <div class="partner-card">
+                    <div class="partner-logo">
+                        <img src="images/partner3.jpg" alt="Melbourne University">
+                    </div>
+                    <h3>University of Melbourne</h3>
+                    <p>Partnering on student housing initiatives and housing research projects.</p>
+                </div>
+                <div class="partner-card">
+                    <div class="partner-logo">
+                        <img src="images/partner4.jpg" alt="Tenants Victoria">
+                    </div>
+                    <h3>Tenants Victoria</h3>
+                    <p>Working together to advocate for tenant rights and rental law reforms.</p>
+                </div>
+                <div class="partner-card">
+                    <div class="partner-logo">
+                        <img src="images/partner5.jpg" alt="Launch Housing">
+                    </div>
+                    <h3>Launch Housing</h3>
+                    <p>Collaborating on homelessness prevention and emergency housing support.</p>
+                </div>
+                <div class="partner-card">
+                    <div class="partner-logo">
+                        <img src="images/partner6.jpg" alt="Study Melbourne">
+                    </div>
+                    <h3>Study Melbourne</h3>
+                    <p>Partnering to support international students with housing needs in Victoria.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Join Our Melbourne Housing Mission</h2>
+                <p>Get involved with RentEase Melbourne and help create housing solutions for all Victorians</p>
+                <div class="cta-buttons">
+                    <a href="volunteer.html" class="btn btn-primary">Volunteer With Us</a>
+                    <a href="donate.html" class="btn btn-secondary">Support Our Work</a>
+                    <a href="contact.html" class="btn btn-tertiary">Contact Our Team</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <h3>About RentEase Melbourne</h3>
+                    <p>RentEase is a Victorian non-profit organization dedicated to connecting people with affordable housing options across Melbourne and providing resources for renters.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="properties.html">Properties</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Collins Street, Melbourne VIC 3000</p>
+                    <p><i class="fas fa-phone"></i> (03) 9123 4567</p>
+                    <p><i class="fas fa-envelope"></i> info@rentease.org.au</p>
+                </div>
+                <div class="footer-section newsletter">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter for updates on new Melbourne properties and housing resources.</p>
+                    <form id="newsletter-form">
+                        <input type="email" placeholder="Your Email Address" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 RentEase Melbourne. All rights reserved. A Victorian non-profit organization.</p>
+                <p>We acknowledge the Traditional Owners of the land on which we operate, the Wurundjeri people of the Kulin Nation, and pay our respects to Elders past, present and emerging.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+
+    <!-- JavaScript Files -->
+    <script src="js/main.js"></script>
+</body>
+</html> 

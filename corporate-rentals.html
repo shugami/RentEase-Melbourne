@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Premium corporate rental properties in Melbourne - Executive apartments, furnished homes, and professional housing solutions">
+    <meta name="keywords" content="Melbourne corporate housing, executive rentals, furnished apartments, professional accommodation, business district rentals">
+    <meta name="author" content="RentEase Melbourne">
+    <title>Corporate Rentals - RentEase Melbourne</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <style>
+        /* Additional styles specific to corporate rentals page */
+        .business-district-section {
+            padding: var(--spacing-xl) 0;
+            background-color: var(--light-color);
+        }
+        
+        .district-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+        
+        .district-card {
+            background: white;
+            border-radius: var(--border-radius-md);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .district-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .district-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .district-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .district-content {
+            padding: var(--spacing-md);
+        }
+        
+        .district-content h3 {
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .amenities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+        
+        .amenity-card {
+            background: white;
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius-md);
+            box-shadow: var(--box-shadow);
+            text-align: center;
+        }
+        
+        .amenity-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .amenity-card h4 {
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: var(--spacing-md) 0;
+        }
+        
+        .feature-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .feature-list li i {
+            color: var(--success-color);
+            margin-right: 10px;
+        }
+        
+        .service-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-md);
+            margin: var(--spacing-lg) 0;
+        }
+        
+        .highlight-box {
+            background: var(--light-color);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius-md);
+            border-left: 4px solid var(--secondary-color);
+        }
+        
+        .highlight-box h4 {
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        @media (max-width: 768px) {
+            .district-grid,
+            .amenities-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .service-highlights {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Dropdown styles */
+        .main-menu li {
+            position: relative;
+        }
+        
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            box-shadow: var(--box-shadow);
+            border-radius: var(--border-radius-sm);
+            min-width: 200px;
+            z-index: 1000;
+        }
+        
+        .main-menu li:hover .dropdown-menu {
+            display: block;
+        }
+        
+        .dropdown-menu li {
+            width: 100%;
+        }
+        
+        .dropdown-menu a {
+            padding: 10px 15px;
+            display: block;
+            color: var(--text-color);
+            transition: all 0.3s ease;
+        }
+        
+        .dropdown-menu a:hover {
+            background: var(--light-color);
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .dropdown-menu {
+                position: static;
+                box-shadow: none;
+                background: var(--light-color);
+                display: none;
+            }
+            
+            .main-menu li.active .dropdown-menu {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <h1>Rent<span>Ease</span> Melbourne</h1>
+                </a>
+            </div>
+            <nav>
+                <ul class="main-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="properties.html">Properties</a></li>
+                    <li>
+                        <a href="#">Special Housing</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="student-housing.html">Student Housing</a></li>
+                            <li><a href="corporate-rentals.html">Corporate Rentals</a></li>
+                            <li><a href="family-housing.html">Family Housing</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Banner -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Corporate Rentals in Melbourne</h1>
+                <p>Premium accommodation solutions for professionals and executives</p>
+                <div class="search-container">
+                    <form id="corporate-search-form">
+                        <div class="search-box">
+                            <input type="text" placeholder="Enter business district, property type or features">
+                            <select>
+                                <option value="">Property Type</option>
+                                <option value="executive">Executive Apartment</option>
+                                <option value="furnished">Furnished Home</option>
+                                <option value="serviced">Serviced Apartment</option>
+                                <option value="penthouse">Penthouse</option>
+                            </select>
+                            <select>
+                                <option value="">Weekly Budget</option>
+                                <option value="500-750">$500 - $750</option>
+                                <option value="750-1000">$750 - $1000</option>
+                                <option value="1000-1500">$1000 - $1500</option>
+                                <option value="1500+">$1500+</option>
+                            </select>
+                            <button type="submit" class="btn btn-primary">Search</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Districts Section -->
+    <section class="business-district-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Premium Locations</h2>
+                <p>Discover executive rentals in Melbourne's prime business districts</p>
+            </div>
+            
+            <div class="district-grid">
+                <!-- CBD District -->
+                <div class="district-card">
+                    <div class="district-image">
+                        <img src="images/melbourne-cbd.jpg" alt="Melbourne CBD">
+                    </div>
+                    <div class="district-content">
+                        <h3>Melbourne CBD</h3>
+                        <p>Heart of the business district</p>
+                        <div class="property-highlights">
+                            <span class="highlight-tag">From $750/week</span>
+                            <span class="highlight-tag">Premium locations</span>
+                            <span class="highlight-tag">City views</span>
+                        </div>
+                        <a href="properties.html?area=melbourne-cbd" class="btn btn-secondary">View Properties</a>
+                    </div>
+                </div>
+
+                <!-- Docklands District -->
+                <div class="district-card">
+                    <div class="district-image">
+                        <img src="images/docklands.jpg" alt="Docklands">
+                    </div>
+                    <div class="district-content">
+                        <h3>Docklands</h3>
+                        <p>Modern waterfront living</p>
+                        <div class="property-highlights">
+                            <span class="highlight-tag">From $700/week</span>
+                            <span class="highlight-tag">Harbor views</span>
+                            <span class="highlight-tag">Business hub</span>
+                        </div>
+                        <a href="properties.html?area=docklands" class="btn btn-secondary">View Properties</a>
+                    </div>
+                </div>
+
+                <!-- Southbank District -->
+                <div class="district-card">
+                    <div class="district-image">
+                        <img src="images/southbank.jpg" alt="Southbank">
+                    </div>
+                    <div class="district-content">
+                        <h3>Southbank</h3>
+                        <p>Luxury riverside apartments</p>
+                        <div class="property-highlights">
+                            <span class="highlight-tag">From $800/week</span>
+                            <span class="highlight-tag">River views</span>
+                            <span class="highlight-tag">Arts precinct</span>
+                        </div>
+                        <a href="properties.html?area=southbank" class="btn btn-secondary">View Properties</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Features Section -->
+    <section class="service-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Premium Features</h2>
+                <p>Experience the highest standards of corporate accommodation</p>
+            </div>
+            
+            <div class="amenities-grid">
+                <div class="amenity-card">
+                    <div class="amenity-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h4>Premium Locations</h4>
+                    <p>Prime addresses in Melbourne's most prestigious business districts</p>
+                </div>
+                
+                <div class="amenity-card">
+                    <div class="amenity-icon">
+                        <i class="fas fa-concierge-bell"></i>
+                    </div>
+                    <h4>Concierge Services</h4>
+                    <p>24/7 concierge support for all your needs</p>
+                </div>
+                
+                <div class="amenity-card">
+                    <div class="amenity-icon">
+                        <i class="fas fa-wifi"></i>
+                    </div>
+                    <h4>High-Speed Internet</h4>
+                    <p>Enterprise-grade WiFi and networking solutions</p>
+                </div>
+                
+                <div class="amenity-card">
+                    <div class="amenity-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h4>Secure Parking</h4>
+                    <p>Dedicated parking spaces with 24/7 security</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Corporate Services Section -->
+    <section class="service-section" style="background-color: var(--light-color);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Corporate Services</h2>
+                <p>Comprehensive support for businesses and professionals</p>
+            </div>
+            
+            <div class="service-highlights">
+                <div class="highlight-box">
+                    <h4>Relocation Services</h4>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Personalized property matching</li>
+                        <li><i class="fas fa-check"></i> Area orientation tours</li>
+                        <li><i class="fas fa-check"></i> Settlement assistance</li>
+                        <li><i class="fas fa-check"></i> Local service recommendations</li>
+                    </ul>
+                </div>
+                
+                <div class="highlight-box">
+                    <h4>Corporate Agreements</h4>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Flexible lease terms</li>
+                        <li><i class="fas fa-check"></i> Corporate billing options</li>
+                        <li><i class="fas fa-check"></i> Volume discounts</li>
+                        <li><i class="fas fa-check"></i> Dedicated account manager</li>
+                    </ul>
+                </div>
+                
+                <div class="highlight-box">
+                    <h4>Additional Services</h4>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Housekeeping services</li>
+                        <li><i class="fas fa-check"></i> Airport transfers</li>
+                        <li><i class="fas fa-check"></i> Maintenance support</li>
+                        <li><i class="fas fa-check"></i> Utility management</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Property Types Section -->
+    <section class="service-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Executive Property Types</h2>
+                <p>Choose from our range of premium accommodation options</p>
+            </div>
+            
+            <div class="service-container">
+                <div class="service-content">
+                    <h3>Tailored Solutions for Every Need</h3>
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <h4>Executive Apartments</h4>
+                            <p>Fully furnished apartments with premium amenities, perfect for long-term corporate stays.</p>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <h4>Serviced Apartments</h4>
+                            <p>Flexible accommodation with hotel-style services and facilities.</p>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <h4>Luxury Penthouses</h4>
+                            <p>Premium penthouses with stunning views, ideal for executive living.</p>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <h4>Corporate Houses</h4>
+                            <p>Spacious homes suitable for relocating executives with families.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-image">
+                    <img src="images/executive-apartment.jpg" alt="Executive Apartment">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>Corporate Client Testimonials</h2>
+                <p>What our corporate clients say about our services</p>
+            </div>
+            <div class="testimonial-slider">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"RentEase provided exceptional service for our executive relocation needs. The properties were exactly what we were looking for, and the additional services made the transition smooth for our team."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="images/testimonial7.jpg" alt="Sarah Chen">
+                        <div class="author-info">
+                            <h4>Sarah Chen</h4>
+                            <p>HR Director, Tech Solutions Ltd</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"The quality of accommodation and level of service exceeded our expectations. Having a dedicated account manager made managing multiple corporate leases effortless."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="images/testimonial8.jpg" alt="James Wilson">
+                        <div class="author-info">
+                            <h4>James Wilson</h4>
+                            <p>Operations Manager, Global Finance Corp</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Discuss Your Corporate Housing Needs?</h2>
+                <p>Contact our corporate leasing team for personalized assistance</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-primary">Contact Corporate Team</a>
+                    <a href="properties.html" class="btn btn-secondary">View Executive Properties</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <h3>About RentEase Melbourne</h3>
+                    <p>RentEase is a Victorian non-profit organization dedicated to connecting people with affordable housing options across Melbourne and providing resources for renters.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="properties.html">Properties</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Collins Street, Melbourne VIC 3000</p>
+                    <p><i class="fas fa-phone"></i> (03) 9123 4567</p>
+                    <p><i class="fas fa-envelope"></i> corporate@rentease.org.au</p>
+                </div>
+                <div class="footer-section newsletter">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter for updates on executive properties and corporate housing news.</p>
+                    <form id="newsletter-form">
+                        <input type="email" placeholder="Your Email Address" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 RentEase Melbourne. All rights reserved.</p>
+                <p>We acknowledge the Traditional Owners of the land on which we operate, the Wurundjeri people of the Kulin Nation, and pay our respects to Elders past, present and emerging.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+
+    <!-- JavaScript Files -->
+    <script src="js/main.js"></script>
+</body>
+</html> 

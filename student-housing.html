@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Student housing solutions in Melbourne - Find affordable accommodation near universities, share houses, and student-specific rental support">
+    <meta name="keywords" content="Melbourne student housing, university accommodation, international student rentals, share houses Melbourne, student apartments">
+    <meta name="author" content="RentEase Melbourne">
+    <title>Student Housing - RentEase Melbourne</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <style>
+        /* Additional styles specific to student housing page */
+        .university-section {
+            padding: var(--spacing-xl) 0;
+            background-color: var(--light-color);
+        }
+        
+        .university-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+        
+        .university-card {
+            background: white;
+            border-radius: var(--border-radius-md);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .university-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .university-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .university-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .university-content {
+            padding: var(--spacing-md);
+        }
+        
+        .university-content h3 {
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .property-highlights {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: var(--spacing-sm) 0;
+        }
+        
+        .highlight-tag {
+            background: var(--light-color);
+            padding: 5px 10px;
+            border-radius: var(--border-radius-sm);
+            font-size: 0.9rem;
+            color: var(--text-color);
+        }
+        
+        .checklist {
+            margin: var(--spacing-md) 0;
+        }
+        
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .checklist-item i {
+            color: var(--success-color);
+            margin-right: 10px;
+            margin-top: 4px;
+        }
+        
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+        
+        .resource-card {
+            background: white;
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius-md);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .resource-card h4 {
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .resource-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .resource-card ul li {
+            margin-bottom: 8px;
+        }
+        
+        .resource-card ul li a {
+            color: var(--text-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .resource-card ul li a i {
+            margin-right: 8px;
+            color: var(--secondary-color);
+        }
+        
+        .resource-card ul li a:hover {
+            color: var(--secondary-color);
+        }
+        
+        @media (max-width: 768px) {
+            .university-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .resources-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* New dropdown styles */
+        .main-menu li {
+            position: relative;
+        }
+        
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            box-shadow: var(--box-shadow);
+            border-radius: var(--border-radius-sm);
+            min-width: 200px;
+            z-index: 1000;
+        }
+        
+        .main-menu li:hover .dropdown-menu {
+            display: block;
+        }
+        
+        .dropdown-menu li {
+            width: 100%;
+        }
+        
+        .dropdown-menu a {
+            padding: 10px 15px;
+            display: block;
+            color: var(--text-color);
+            transition: all 0.3s ease;
+        }
+        
+        .dropdown-menu a:hover {
+            background: var(--light-color);
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .dropdown-menu {
+                position: static;
+                box-shadow: none;
+                background: var(--light-color);
+                display: none;
+            }
+            
+            .main-menu li.active .dropdown-menu {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <h1>Rent<span>Ease</span> Melbourne</h1>
+                </a>
+            </div>
+            <nav>
+                <ul class="main-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="properties.html">Properties</a></li>
+                    <li>
+                        <a href="#">Special Housing</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="student-housing.html">Student Housing</a></li>
+                            <li><a href="corporate-rentals.html">Corporate Rentals</a></li>
+                            <li><a href="family-housing.html">Family Housing</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Banner -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Student Housing in Melbourne</h1>
+                <p>Find your perfect student accommodation near Melbourne's top universities</p>
+                <div class="search-container">
+                    <form id="student-search-form">
+                        <div class="search-box">
+                            <input type="text" placeholder="Enter university, suburb or property type">
+                            <select>
+                                <option value="">Property Type</option>
+                                <option value="studio">Studio Apartment</option>
+                                <option value="shared">Share House</option>
+                                <option value="student-accommodation">Purpose-Built Student Accommodation</option>
+                                <option value="private-room">Private Room</option>
+                            </select>
+                            <select>
+                                <option value="">Weekly Budget</option>
+                                <option value="0-200">$0 - $200</option>
+                                <option value="200-300">$200 - $300</option>
+                                <option value="300-400">$300 - $400</option>
+                                <option value="400+">$400+</option>
+                            </select>
+                            <button type="submit" class="btn btn-primary">Search</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- University Areas Section -->
+    <section class="university-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Properties Near Universities</h2>
+                <p>Browse student-friendly rentals near Melbourne's major educational institutions</p>
+            </div>
+            
+            <div class="university-grid">
+                <!-- University of Melbourne Area -->
+                <div class="university-card">
+                    <div class="university-image">
+                        <img src="images/unimelb-area.jpg" alt="University of Melbourne Area">
+                    </div>
+                    <div class="university-content">
+                        <h3>University of Melbourne</h3>
+                        <p>Parkville & Carlton Area</p>
+                        <div class="property-highlights">
+                            <span class="highlight-tag">From $250/week</span>
+                            <span class="highlight-tag">5 min to campus</span>
+                            <span class="highlight-tag">Tram access</span>
+                        </div>
+                        <a href="properties.html?area=parkville" class="btn btn-secondary">View Properties</a>
+                    </div>
+                </div>
+
+                <!-- RMIT University Area -->
+                <div class="university-card">
+                    <div class="university-image">
+                        <img src="images/rmit-area.jpg" alt="RMIT University Area">
+                    </div>
+                    <div class="university-content">
+                        <h3>RMIT University</h3>
+                        <p>CBD & Brunswick Area</p>
+                        <div class="property-highlights">
+                            <span class="highlight-tag">From $280/week</span>
+                            <span class="highlight-tag">City location</span>
+                            <span class="highlight-tag">All transport</span>
+                        </div>
+                        <a href="properties.html?area=melbourne-cbd" class="btn btn-secondary">View Properties</a>
+                    </div>
+                </div>
+
+                <!-- Monash University Area -->
+                <div class="university-card">
+                    <div class="university-image">
+                        <img src="images/monash-area.jpg" alt="Monash University Area">
+                    </div>
+                    <div class="university-content">
+                        <h3>Monash University</h3>
+                        <p>Clayton & Caulfield Area</p>
+                        <div class="property-highlights">
+                            <span class="highlight-tag">From $220/week</span>
+                            <span class="highlight-tag">Student village</span>
+                            <span class="highlight-tag">Bus access</span>
+                        </div>
+                        <a href="properties.html?area=clayton" class="btn btn-secondary">View Properties</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Student Housing Guide -->
+    <section class="service-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Student Housing Guide</h2>
+                <p>Everything you need to know about renting as a student in Melbourne</p>
+            </div>
+            
+            <div class="service-container">
+                <div class="service-content">
+                    <h3>Essential Information for Student Renters</h3>
+                    <div class="checklist">
+                        <div class="checklist-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4>Rental Rights</h4>
+                                <p>Learn about your rights as a student tenant under Victorian law, including bond protection and maintenance requirements.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="checklist-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4>Financial Support</h4>
+                                <p>Information about Centrelink rent assistance, scholarships, and other financial aid options for students.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="checklist-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4>Share Housing Tips</h4>
+                                <p>Guidelines for finding reliable housemates, setting house rules, and managing shared expenses.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="checklist-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4>International Student Support</h4>
+                                <p>Special considerations and support services for international students, including accommodation guarantor services.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-image">
+                    <img src="images/student-guide.jpg" alt="Student Housing Guide">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section class="resources-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Student Housing Resources</h2>
+                <p>Access helpful tools and information for your housing search</p>
+            </div>
+            
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <h4>Helpful Documents</h4>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-file-pdf"></i> Student Renter's Guide</a></li>
+                        <li><a href="#"><i class="fas fa-file-pdf"></i> Share House Agreement Template</a></li>
+                        <li><a href="#"><i class="fas fa-file-pdf"></i> Budget Planning Worksheet</a></li>
+                        <li><a href="#"><i class="fas fa-file-pdf"></i> Property Inspection Checklist</a></li>
+                    </ul>
+                </div>
+                
+                <div class="resource-card">
+                    <h4>University Housing Services</h4>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-external-link-alt"></i> UniMelb Housing</a></li>
+                        <li><a href="#"><i class="fas fa-external-link-alt"></i> RMIT Housing Support</a></li>
+                        <li><a href="#"><i class="fas fa-external-link-alt"></i> Monash Residential</a></li>
+                        <li><a href="#"><i class="fas fa-external-link-alt"></i> Student Housing Australia</a></li>
+                    </ul>
+                </div>
+                
+                <div class="resource-card">
+                    <h4>Financial Resources</h4>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-external-link-alt"></i> Centrelink Rent Assistance</a></li>
+                        <li><a href="#"><i class="fas fa-external-link-alt"></i> Victorian Bond Loans</a></li>
+                        <li><a href="#"><i class="fas fa-external-link-alt"></i> Student Scholarships</a></li>
+                        <li><a href="#"><i class="fas fa-external-link-alt"></i> Emergency Housing Support</a></li>
+                    </ul>
+                </div>
+                
+                <div class="resource-card">
+                    <h4>Support Services</h4>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-external-link-alt"></i> International Student Support</a></li>
+                        <li><a href="#"><i class="fas fa-external-link-alt"></i> Legal Aid Victoria</a></li>
+                        <li><a href="#"><i class="fas fa-external-link-alt"></i> Tenants Victoria</a></li>
+                        <li><a href="#"><i class="fas fa-external-link-alt"></i> Study Melbourne</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" style="background-color: var(--light-color);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+                <p>Common questions about student housing in Melbourne</p>
+            </div>
+            
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h4>What documents do I need to apply for student housing?</h4>
+                    <p>You'll typically need proof of identity, proof of income or scholarship, student ID, rental references (if available), and bank statements. International students may also need their visa documentation.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h4>How much should I budget for student accommodation?</h4>
+                    <p>Budget varies by location and property type. Shared houses typically range from $150-300 per week, while studio apartments can cost $250-450 per week. Remember to factor in utilities, internet, and bond payment.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h4>Can international students apply for bond loans?</h4>
+                    <p>Yes, international students can apply for bond loans through various programs. Our team can help you understand your eligibility and guide you through the application process.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h4>What's the best time to look for student housing?</h4>
+                    <p>The best time is 6-8 weeks before semester starts. January-February and June-July are peak periods, so start your search early to have more options.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Find Your Student Home?</h2>
+                <p>Let us help you find the perfect accommodation for your studies in Melbourne</p>
+                <div class="cta-buttons">
+                    <a href="properties.html" class="btn btn-primary">Browse Student Properties</a>
+                    <a href="contact.html" class="btn btn-secondary">Get Personalized Help</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <h3>About RentEase Melbourne</h3>
+                    <p>RentEase is a Victorian non-profit organization dedicated to connecting people with affordable housing options across Melbourne and providing resources for renters.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="properties.html">Properties</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Collins Street, Melbourne VIC 3000</p>
+                    <p><i class="fas fa-phone"></i> (03) 9123 4567</p>
+                    <p><i class="fas fa-envelope"></i> info@rentease.org.au</p>
+                </div>
+                <div class="footer-section newsletter">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter for updates on student properties and housing resources.</p>
+                    <form id="newsletter-form">
+                        <input type="email" placeholder="Your Email Address" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 RentEase Melbourne. All rights reserved.</p>
+                <p>We acknowledge the Traditional Owners of the land on which we operate, the Wurundjeri people of the Kulin Nation, and pay our respects to Elders past, present and emerging.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+
+    <!-- JavaScript Files -->
+    <script src="js/main.js"></script>
+</body>
+</html> 

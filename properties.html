@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Browse our selection of affordable rental properties - apartments, houses, and more">
+    <meta name="keywords" content="rental properties, apartments for rent, houses for rent, affordable housing, non-profit">
+    <meta name="author" content="RentEase">
+    <title>Properties - RentEase</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <!-- Open Graph tags for social media sharing -->
+    <meta property="og:title" content="Properties - RentEase">
+    <meta property="og:description" content="Browse our selection of affordable rental properties - apartments, houses, and more">
+    <meta property="og:image" content="images/og-image.jpg">
+    <meta property="og:url" content="https://rentease.org/properties.html">
+    <style>
+        /* Additional styles specific to the properties page */
+        .property-filters {
+            background-color: white;
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius-md);
+            box-shadow: var(--box-shadow);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .filter-form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .filter-group {
+            margin-bottom: 15px;
+        }
+        
+        .filter-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .filter-group select,
+        .filter-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-sm);
+        }
+        
+        .price-range {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .price-range input {
+            flex: 1;
+        }
+        
+        .filter-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .filter-buttons button {
+            padding: 10px 20px;
+        }
+        
+        .clear-filters {
+            background-color: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+        }
+        
+        .clear-filters:hover {
+            background-color: var(--light-color);
+        }
+        
+        .properties-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: var(--spacing-lg);
+        }
+        
+        .pagination a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            margin: 0 5px;
+            border-radius: 50%;
+            background-color: white;
+            color: var(--text-color);
+            box-shadow: var(--box-shadow);
+            transition: all 0.3s ease;
+        }
+        
+        .pagination a:hover,
+        .pagination a.active {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        /* Add dropdown styles before the closing style tag */
+        .main-menu li {
+            position: relative;
+        }
+        
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            box-shadow: var(--box-shadow);
+            border-radius: var(--border-radius-sm);
+            min-width: 200px;
+            z-index: 1000;
+        }
+        
+        .main-menu li:hover .dropdown-menu {
+            display: block;
+        }
+        
+        .dropdown-menu li {
+            width: 100%;
+        }
+        
+        .dropdown-menu a {
+            padding: 10px 15px;
+            display: block;
+            color: var(--text-color);
+            transition: all 0.3s ease;
+        }
+        
+        .dropdown-menu a:hover {
+            background: var(--light-color);
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .dropdown-menu {
+                position: static;
+                box-shadow: none;
+                background: var(--light-color);
+                display: none;
+            }
+            
+            .main-menu li.active .dropdown-menu {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <h1>Rent<span>Ease</span> Melbourne</h1>
+                </a>
+            </div>
+            <nav>
+                <ul class="main-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="properties.html" class="active">Properties</a></li>
+                    <li>
+                        <a href="#">Special Housing</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="student-housing.html">Student Housing</a></li>
+                            <li><a href="corporate-rentals.html">Corporate Rentals</a></li>
+                            <li><a href="family-housing.html">Family Housing</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Banner -->
+    <section class="hero" style="padding: var(--spacing-lg) 0;">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Browse Our Properties</h1>
+                <p>Find the perfect rental home that fits your needs and budget</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Properties Section -->
+    <section class="properties-section">
+        <div class="container">
+            <!-- Property Filters -->
+            <div class="property-filters">
+                <h2>Filter Properties</h2>
+                <form class="filter-form">
+                    <div class="filter-group">
+                        <label for="location">Location</label>
+                        <select id="location">
+                            <option value="">All Locations</option>
+                            <option value="downtown">Downtown</option>
+                            <option value="suburb">Suburb</option>
+                            <option value="east-side">East Side</option>
+                            <option value="west-side">West Side</option>
+                            <option value="north-side">North Side</option>
+                            <option value="south-side">South Side</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="property-type">Property Type</label>
+                        <select id="property-type">
+                            <option value="">All Types</option>
+                            <option value="apartment">Apartment</option>
+                            <option value="house">House</option>
+                            <option value="condo">Condo</option>
+                            <option value="townhouse">Townhouse</option>
+                            <option value="studio">Studio</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="bedrooms">Bedrooms</label>
+                        <select id="bedrooms">
+                            <option value="">Any</option>
+                            <option value="1">1+ Bedroom</option>
+                            <option value="2">2+ Bedrooms</option>
+                            <option value="3">3+ Bedrooms</option>
+                            <option value="4">4+ Bedrooms</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="bathrooms">Bathrooms</label>
+                        <select id="bathrooms">
+                            <option value="">Any</option>
+                            <option value="1">1+ Bathroom</option>
+                            <option value="2">2+ Bathrooms</option>
+                            <option value="3">3+ Bathrooms</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label>Price Range</label>
+                        <div class="price-range">
+                            <input type="number" placeholder="Min" min="0" step="100">
+                            <input type="number" placeholder="Max" min="0" step="100">
+                        </div>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="amenities">Amenities</label>
+                        <select id="amenities" multiple>
+                            <option value="parking">Parking</option>
+                            <option value="pool">Pool</option>
+                            <option value="gym">Gym</option>
+                            <option value="pet-friendly">Pet Friendly</option>
+                            <option value="furnished">Furnished</option>
+                            <option value="laundry">Laundry</option>
+                            <option value="air-conditioning">Air Conditioning</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-buttons">
+                        <button type="submit" class="btn btn-primary">Apply Filters</button>
+                        <button type="reset" class="btn clear-filters">Clear Filters</button>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- Properties Grid -->
+            <div class="properties-grid">
+                <!-- Property Card 1 -->
+                <div class="property-card">
+                    <div class="property-image">
+                        <img src="images/property1.jpg" alt="Modern Apartment in Downtown">
+                        <div class="property-tag">Featured</div>
+                        <div class="property-price">$1,200/month</div>
+                    </div>
+                    <div class="property-details">
+                        <h3>Modern Apartment in Downtown</h3>
+                        <p class="property-address"><i class="fas fa-map-marker-alt"></i> 123 Main St, City</p>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 2 Beds</span>
+                            <span><i class="fas fa-bath"></i> 1 Bath</span>
+                            <span><i class="fas fa-ruler-combined"></i> 850 sq ft</span>
+                        </div>
+                        <p class="property-description">Beautiful modern apartment with great amenities in the heart of downtown.</p>
+                        <a href="property-details.html" class="btn btn-secondary">View Details</a>
+                    </div>
+                </div>
+                
+                <!-- Property Card 2 -->
+                <div class="property-card">
+                    <div class="property-image">
+                        <img src="images/property2.jpg" alt="Cozy Family Home">
+                        <div class="property-tag">New</div>
+                        <div class="property-price">$1,800/month</div>
+                    </div>
+                    <div class="property-details">
+                        <h3>Cozy Family Home</h3>
+                        <p class="property-address"><i class="fas fa-map-marker-alt"></i> 456 Oak Ave, Suburb</p>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 3 Beds</span>
+                            <span><i class="fas fa-bath"></i> 2 Baths</span>
+                            <span><i class="fas fa-ruler-combined"></i> 1,500 sq ft</span>
+                        </div>
+                        <p class="property-description">Spacious family home with a backyard in a quiet neighborhood.</p>
+                        <a href="property-details.html" class="btn btn-secondary">View Details</a>
+                    </div>
+                </div>
+                
+                <!-- Property Card 3 -->
+                <div class="property-card">
+                    <div class="property-image">
+                        <img src="images/property3.jpg" alt="Studio Apartment">
+                        <div class="property-price">$900/month</div>
+                    </div>
+                    <div class="property-details">
+                        <h3>Studio Apartment</h3>
+                        <p class="property-address"><i class="fas fa-map-marker-alt"></i> 789 Pine St, City</p>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 1 Bed</span>
+                            <span><i class="fas fa-bath"></i> 1 Bath</span>
+                            <span><i class="fas fa-ruler-combined"></i> 550 sq ft</span>
+                        </div>
+                        <p class="property-description">Compact and efficient studio apartment, perfect for singles or students.</p>
+                        <a href="property-details.html" class="btn btn-secondary">View Details</a>
+                    </div>
+                </div>
+                
+                <!-- Property Card 4 -->
+                <div class="property-card">
+                    <div class="property-image">
+                        <img src="images/property4.jpg" alt="Luxury Condo">
+                        <div class="property-price">$2,200/month</div>
+                    </div>
+                    <div class="property-details">
+                        <h3>Luxury Condo</h3>
+                        <p class="property-address"><i class="fas fa-map-marker-alt"></i> 101 River View, East Side</p>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 2 Beds</span>
+                            <span><i class="fas fa-bath"></i> 2 Baths</span>
+                            <span><i class="fas fa-ruler-combined"></i> 1,200 sq ft</span>
+                        </div>
+                        <p class="property-description">Modern luxury condo with stunning river views and high-end finishes.</p>
+                        <a href="property-details.html" class="btn btn-secondary">View Details</a>
+                    </div>
+                </div>
+                
+                <!-- Property Card 5 -->
+                <div class="property-card">
+                    <div class="property-image">
+                        <img src="images/property5.jpg" alt="Townhouse with Garage">
+                        <div class="property-price">$1,650/month</div>
+                    </div>
+                    <div class="property-details">
+                        <h3>Townhouse with Garage</h3>
+                        <p class="property-address"><i class="fas fa-map-marker-alt"></i> 222 Maple Dr, West Side</p>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 3 Beds</span>
+                            <span><i class="fas fa-bath"></i> 2.5 Baths</span>
+                            <span><i class="fas fa-ruler-combined"></i> 1,800 sq ft</span>
+                        </div>
+                        <p class="property-description">Spacious townhouse with attached garage and private patio.</p>
+                        <a href="property-details.html" class="btn btn-secondary">View Details</a>
+                    </div>
+                </div>
+                
+                <!-- Property Card 6 -->
+                <div class="property-card">
+                    <div class="property-image">
+                        <img src="images/property6.jpg" alt="Budget Friendly Apartment">
+                        <div class="property-tag">Affordable</div>
+                        <div class="property-price">$750/month</div>
+                    </div>
+                    <div class="property-details">
+                        <h3>Budget Friendly Apartment</h3>
+                        <p class="property-address"><i class="fas fa-map-marker-alt"></i> 333 Elm St, South Side</p>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 1 Bed</span>
+                            <span><i class="fas fa-bath"></i> 1 Bath</span>
+                            <span><i class="fas fa-ruler-combined"></i> 650 sq ft</span>
+                        </div>
+                        <p class="property-description">Affordable one-bedroom apartment in a convenient location.</p>
+                        <a href="property-details.html" class="btn btn-secondary">View Details</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pagination -->
+            <div class="pagination">
+                <a href="#" class="active">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#"><i class="fas fa-chevron-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Can't Find What You're Looking For?</h2>
+                <p>Contact us and let us help you find the perfect rental property</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-primary">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <h3>About RentEase</h3>
+                    <p>RentEase is a non-profit organization dedicated to connecting people with affordable housing options and providing resources for renters.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="properties.html">Properties</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Rental Ave, Suite 101, City, State 12345</p>
+                    <p><i class="fas fa-phone"></i> (123) 456-7890</p>
+                    <p><i class="fas fa-envelope"></i> info@rentease.org</p>
+                </div>
+                <div class="footer-section newsletter">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter for updates on new properties and housing resources.</p>
+                    <form id="newsletter-form">
+                        <input type="email" placeholder="Your Email Address" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 RentEase. All rights reserved. A non-profit organization.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+
+    <!-- JavaScript Files -->
+    <script src="js/main.js"></script>
+</body>
+</html> 

@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Melbourne's premier non-profit real estate rental service helping Australians find affordable housing options across Victoria">
+    <meta name="keywords" content="Melbourne real estate, rental, affordable housing, non-profit, apartments, homes for rent, Victoria, Australia, rental assistance">
+    <meta name="author" content="RentEase Melbourne">
+    <title>RentEase Melbourne - Affordable Housing Solutions in Victoria</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <!-- Open Graph tags for social media sharing -->
+    <meta property="og:title" content="RentEase Melbourne - Affordable Housing Solutions in Victoria">
+    <meta property="og:description" content="Melbourne's premier non-profit real estate rental service helping Australians find affordable housing options across Victoria">
+    <meta property="og:image" content="images/og-image.jpg">
+    <meta property="og:url" content="https://rentease.org.au">
+    <style>
+        @media (max-width: 768px) {
+            .hero-content {
+                text-align: center;
+            }
+        }
+
+        /* Dropdown styles */
+        .main-menu li {
+            position: relative;
+        }
+        
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            box-shadow: var(--box-shadow);
+            border-radius: var(--border-radius-sm);
+            min-width: 200px;
+            z-index: 1000;
+        }
+        
+        .main-menu li:hover .dropdown-menu {
+            display: block;
+        }
+        
+        .dropdown-menu li {
+            width: 100%;
+        }
+        
+        .dropdown-menu a {
+            padding: 10px 15px;
+            display: block;
+            color: var(--text-color);
+            transition: all 0.3s ease;
+        }
+        
+        .dropdown-menu a:hover {
+            background: var(--light-color);
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .dropdown-menu {
+                position: static;
+                box-shadow: none;
+                background: var(--light-color);
+                display: none;
+            }
+            
+            .main-menu li.active .dropdown-menu {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <h1>Rent<span>Ease</span> Melbourne</h1>
+                </a>
+            </div>
+            <nav>
+                <ul class="main-menu">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="properties.html">Properties</a></li>
+                    <li>
+                        <a href="#">Housing</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="student-housing.html">Student Housing</a></li>
+                            <li><a href="corporate-rentals.html">Corporate Rentals</a></li>
+                            <li><a href="family-housing.html">Family Housing</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+    
+                </ul>
+                <div class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" style="background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('./images/1287681.jpg') no-repeat center center; background-size: cover; min-height: 80vh; display: flex; align-items: center;">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Find Your Perfect Melbourne Home</h1>
+                <p>We're a Victorian non-profit organization dedicated to connecting Australians with affordable housing options across Melbourne and surrounding suburbs</p>
+                <div class="search-container">
+                    <form id="search-form">
+                        <div class="search-box">
+                            <input type="text" placeholder="Enter suburb, property type, or keywords">
+                            <select>
+                                <option value="">Property Type</option>
+                                <option value="apartment">Apartment</option>
+                                <option value="house">House</option>
+                                <option value="unit">Unit</option>
+                                <option value="townhouse">Townhouse</option>
+                                <option value="studio">Studio</option>
+                                <option value="granny-flat">Granny Flat</option>
+                            </select>
+                            <select>
+                                <option value="">Price Range</option>
+                                <option value="0-300">$0 - $300/week</option>
+                                <option value="300-400">$300 - $400/week</option>
+                                <option value="400-500">$400 - $500/week</option>
+                                <option value="500-600">$500 - $600/week</option>
+                                <option value="600+">$600+/week</option>
+                            </select>
+                            <button type="submit" class="btn btn-primary">Search</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Properties Section -->
+    <section class="featured-properties">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Melbourne Properties</h2>
+                <p>Discover our selection of quality rental properties across Melbourne's most sought-after suburbs</p>
+            </div>
+            <div class="property-grid">
+                <!-- Property Card 1 -->
+                <div class="property-card">
+                    <div class="property-image">
+                        <img src="images/property1.jpg" alt="Modern Apartment in CBD Melbourne">
+                        <div class="property-tag">Featured</div>
+                        <div class="property-price">$450/week</div>
+                    </div>
+                    <div class="property-details">
+                        <h3>Modern Apartment in CBD</h3>
+                        <p class="property-address"><i class="fas fa-map-marker-alt"></i> 123 Flinders Lane, Melbourne</p>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 2 Beds</span>
+                            <span><i class="fas fa-bath"></i> 1 Bath</span>
+                            <span><i class="fas fa-ruler-combined"></i> 75 m²</span>
+                        </div>
+                        <p class="property-description">Beautiful modern apartment with city views, close to public transport, restaurants and Federation Square.</p>
+                        <a href="property-details.html" class="btn btn-secondary">View Details</a>
+                    </div>
+                </div>
+                
+                <!-- Property Card 2 -->
+                <div class="property-card">
+                    <div class="property-image">
+                        <img src="images/property2.jpg" alt="Family Home in Brunswick">
+                        <div class="property-tag">New</div>
+                        <div class="property-price">$580/week</div>
+                    </div>
+                    <div class="property-details">
+                        <h3>Family Home in Brunswick</h3>
+                        <p class="property-address"><i class="fas fa-map-marker-alt"></i> 45 Sydney Road, Brunswick</p>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 3 Beds</span>
+                            <span><i class="fas fa-bath"></i> 2 Baths</span>
+                            <span><i class="fas fa-ruler-combined"></i> 120 m²</span>
+                        </div>
+                        <p class="property-description">Spacious family home with backyard, close to schools, parks and Brunswick's vibrant café scene.</p>
+                        <a href="property-details.html" class="btn btn-secondary">View Details</a>
+                    </div>
+                </div>
+                
+                <!-- Property Card 3 -->
+                <div class="property-card">
+                    <div class="property-image">
+                        <img src="images/property3.jpg" alt="Studio Apartment in St Kilda">
+                        <div class="property-tag">Affordable</div>
+                        <div class="property-price">$320/week</div>
+                    </div>
+                    <div class="property-details">
+                        <h3>Studio Apartment in St Kilda</h3>
+                        <p class="property-address"><i class="fas fa-map-marker-alt"></i> 78 Acland Street, St Kilda</p>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 1 Bed</span>
+                            <span><i class="fas fa-bath"></i> 1 Bath</span>
+                            <span><i class="fas fa-ruler-combined"></i> 45 m²</span>
+                        </div>
+                        <p class="property-description">Compact and efficient studio apartment, walking distance to St Kilda Beach and tram stops.</p>
+                        <a href="property-details.html" class="btn btn-secondary">View Details</a>
+                    </div>
+                </div>
+            </div>
+            <div class="view-all-container">
+                <a href="properties.html" class="btn btn-primary">View All Properties</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Melbourne Services</h2>
+                <p>We're dedicated to making your rental experience in Victoria seamless and stress-free</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Property Listings</h3>
+                    <p>Browse our extensive database of verified rental properties across Melbourne and Victoria to find your perfect match.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Property Search</h3>
+                    <p>Use our advanced search tools to filter properties based on suburbs, price range, and specific requirements.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <h3>Rental Assistance</h3>
+                    <p>Get guidance on rental applications, lease agreements, and Victorian tenant rights and responsibilities.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>Community Support</h3>
+                    <p>Access resources and support for affordable housing initiatives in Melbourne's diverse communities.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <h3>Financial Guidance</h3>
+                    <p>Receive advice on rental bonds, Centrelink assistance, and Victorian government housing support programs.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h3>Student Housing</h3>
+                    <p>Specialized assistance for international and domestic students seeking affordable accommodation near Melbourne universities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Melbourne Suburbs Section -->
+    <section class="suburbs-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Popular Melbourne Suburbs</h2>
+                <p>Explore rental properties in Melbourne's most sought-after locations</p>
+            </div>
+            <div class="suburbs-grid">
+                <a href="properties.html?suburb=cbd" class="suburb-card">
+                    <div class="suburb-image">
+                        <img src="images/melbourne-cbd.jpg" alt="Melbourne CBD">
+                    </div>
+                    <h3>CBD</h3>
+                    <p>From $380/week</p>
+                </a>
+                <a href="properties.html?suburb=fitzroy" class="suburb-card">
+                    <div class="suburb-image">
+                        <img src="images/fitzroy.jpg" alt="Fitzroy">
+                    </div>
+                    <h3>Fitzroy</h3>
+                    <p>From $420/week</p>
+                </a>
+                <a href="properties.html?suburb=southyarra" class="suburb-card">
+                    <div class="suburb-image">
+                        <img src="images/south-yarra.jpg" alt="South Yarra">
+                    </div>
+                    <h3>South Yarra</h3>
+                    <p>From $450/week</p>
+                </a>
+                <a href="properties.html?suburb=carlton" class="suburb-card">
+                    <div class="suburb-image">
+                        <img src="images/carlton.jpg" alt="Carlton">
+                    </div>
+                    <h3>Carlton</h3>
+                    <p>From $400/week</p>
+                </a>
+                <a href="properties.html?suburb=richmond" class="suburb-card">
+                    <div class="suburb-image">
+                        <img src="images/richmond.jpg" alt="Richmond">
+                    </div>
+                    <h3>Richmond</h3>
+                    <p>From $420/week</p>
+                </a>
+                <a href="properties.html?suburb=stkilda" class="suburb-card">
+                    <div class="suburb-image">
+                        <img src="images/st-kilda.jpg" alt="St Kilda">
+                    </div>
+                    <h3>St Kilda</h3>
+                    <p>From $380/week</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Our Melbourne Clients Say</h2>
+                <p>Hear from people we've helped find their perfect rental in Victoria</p>
+            </div>
+            <div class="testimonial-slider">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"RentEase Melbourne made finding an affordable apartment so much easier than I expected. Their team was supportive throughout the entire process and helped me navigate the competitive Melbourne rental market."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="images/testimonial1.jpg" alt="Sarah Johnson">
+                        <div class="author-info">
+                            <h4>Sarah Johnson</h4>
+                            <p>Found apartment in Melbourne CBD</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"As an international student at Melbourne University, I was struggling to find decent housing. RentEase connected me with a great place in Carlton within my price range and helped me understand my rights as a tenant."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="images/testimonial2.jpg" alt="Michael Chen">
+                        <div class="author-info">
+                            <h4>Michael Chen</h4>
+                            <p>International student housing success</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"After struggling with the private rental market for months, RentEase helped our family find an affordable home in Brunswick. Their knowledge of government assistance programs was invaluable to us."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="images/testimonial3.jpg" alt="The Williams Family">
+                        <div class="author-info">
+                            <h4>The Williams Family</h4>
+                            <p>Found family home in Brunswick</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-navigation">
+                    <button class="prev-btn"><i class="fas fa-chevron-left"></i></button>
+                    <button class="next-btn"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Housing Resources Section -->
+    <section class="resources-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Victorian Housing Resources</h2>
+                <p>Access valuable information and support for your housing journey</p>
+            </div>
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>Tenant Rights Guide</h3>
+                    <p>Comprehensive guide to your rights under Victorian rental laws.</p>
+                    <a href="resources.html#tenant-rights" class="btn btn-secondary">Learn More</a>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <h3>Financial Assistance</h3>
+                    <p>Information on rent assistance, bonds, and emergency housing funds.</p>
+                    <a href="resources.html#financial-assistance" class="btn btn-secondary">Learn More</a>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>Public Housing</h3>
+                    <p>Guide to applying for public and community housing in Victoria.</p>
+                    <a href="resources.html#public-housing" class="btn btn-secondary">Learn More</a>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Student Housing</h3>
+                    <p>Resources specifically for domestic and international students.</p>
+                    <a href="resources.html#student-housing" class="btn btn-secondary">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Find Your New Melbourne Home?</h2>
+                <p>Start your search today or register for our property alerts</p>
+                <div class="cta-buttons">
+                    <a href="properties.html" class="btn btn-primary">Browse Properties</a>
+                    <a href="contact.html" class="btn btn-secondary">Contact Us</a>
+                    <a href="alerts.html" class="btn btn-tertiary">Set Up Alerts</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <h3>About RentEase Melbourne</h3>
+                    <p>RentEase is a Victorian non-profit organization dedicated to connecting people with affordable housing options across Melbourne and providing resources for renters.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="properties.html">Properties</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Collins Street, Melbourne VIC 3000</p>
+                    <p><i class="fas fa-phone"></i> (03) 9123 4567</p>
+                    <p><i class="fas fa-envelope"></i> info@rentease.org.au</p>
+                </div>
+                <div class="footer-section newsletter">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter for updates on new Melbourne properties and housing resources.</p>
+                    <form id="newsletter-form">
+                        <input type="email" placeholder="Your Email Address" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 RentEase Melbourne. All rights reserved. A Victorian non-profit organization.</p>
+                <p>We acknowledge the Traditional Owners of the land on which we operate, the Wurundjeri people of the Kulin Nation, and pay our respects to Elders past, present and emerging.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+
+    <!-- JavaScript Files -->
+    <script src="js/main.js"></script>
+</body>
+</html> 

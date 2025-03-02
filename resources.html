@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Access valuable housing resources and information for renters in Melbourne and Victoria - tenant rights, financial assistance, and more">
+    <meta name="keywords" content="Melbourne housing resources, Victorian tenant rights, rental assistance, affordable housing, Centrelink rent assistance, international student housing">
+    <meta name="author" content="RentEase Melbourne">
+    <title>Housing Resources - RentEase Melbourne</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <!-- Open Graph tags for social media sharing -->
+    <meta property="og:title" content="Housing Resources - RentEase Melbourne">
+    <meta property="og:description" content="Access valuable housing resources and information for renters in Melbourne and Victoria - tenant rights, financial assistance, and more">
+    <meta property="og:image" content="images/og-image.jpg">
+    <meta property="og:url" content="https://rentease.org.au/resources.html">
+    <style>
+        /* Additional styles specific to the resources page */
+        .resources-section {
+            padding: var(--spacing-xl) 0;
+        }
+        
+        .resource-category {
+            background-color: white;
+            border-radius: var(--border-radius-md);
+            box-shadow: var(--box-shadow);
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .resource-category h2 {
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-sm);
+            padding-bottom: var(--spacing-sm);
+            border-bottom: 2px solid var(--light-color);
+        }
+        
+        .resource-item {
+            margin-bottom: var(--spacing-md);
+            padding-bottom: var(--spacing-md);
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .resource-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .resource-item h3 {
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+        
+        .resource-item p {
+            margin-bottom: 15px;
+        }
+        
+        .resource-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .resource-links a {
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--light-color);
+            padding: 8px 15px;
+            border-radius: var(--border-radius-sm);
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .resource-links a i {
+            margin-right: 8px;
+            color: var(--secondary-color);
+        }
+        
+        .resource-links a:hover {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+        
+        .resource-links a:hover i {
+            color: white;
+        }
+        
+        .download-guide {
+            display: flex;
+            align-items: center;
+            background-color: var(--light-color);
+            padding: var(--spacing-sm);
+            border-radius: var(--border-radius-sm);
+            margin-top: var(--spacing-sm);
+        }
+        
+        .download-icon {
+            background-color: var(--secondary-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .download-icon i {
+            font-size: 24px;
+        }
+        
+        .download-info h4 {
+            margin-bottom: 5px;
+        }
+        
+        .download-info p {
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+        
+        .download-btn {
+            margin-left: auto;
+            flex-shrink: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .download-guide {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .download-icon {
+                margin-bottom: 10px;
+            }
+            
+            .download-btn {
+                margin-left: 0;
+                margin-top: 10px;
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        /* Add dropdown styles before the closing style tag */
+        .main-menu li {
+            position: relative;
+        }
+        
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            box-shadow: var(--box-shadow);
+            border-radius: var(--border-radius-sm);
+            min-width: 200px;
+            z-index: 1000;
+        }
+        
+        .main-menu li:hover .dropdown-menu {
+            display: block;
+        }
+        
+        .dropdown-menu li {
+            width: 100%;
+        }
+        
+        .dropdown-menu a {
+            padding: 10px 15px;
+            display: block;
+            color: var(--text-color);
+            transition: all 0.3s ease;
+        }
+        
+        .dropdown-menu a:hover {
+            background: var(--light-color);
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .dropdown-menu {
+                position: static;
+                box-shadow: none;
+                background: var(--light-color);
+                display: none;
+            }
+            
+            .main-menu li.active .dropdown-menu {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <h1>Rent<span>Ease</span> Melbourne</h1>
+                </a>
+            </div>
+            <nav>
+                <ul class="main-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="properties.html">Properties</a></li>
+                    <li>
+                        <a href="#">Special Housing</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="student-housing.html">Student Housing</a></li>
+                            <li><a href="corporate-rentals.html">Corporate Rentals</a></li>
+                            <li><a href="family-housing.html">Family Housing</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="resources.html" class="active">Resources</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Banner -->
+    <section class="hero" style="padding: var(--spacing-lg) 0;">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Housing Resources</h1>
+                <p>Access valuable information and support for renters in Melbourne and Victoria</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section class="resources-section">
+        <div class="container">
+            <!-- Tenant Rights -->
+            <div class="resource-category" id="tenant-rights">
+                <h2>Victorian Tenant Rights Guide</h2>
+                
+                <div class="resource-item">
+                    <h3>Understanding the Residential Tenancies Act</h3>
+                    <p>The Residential Tenancies Act 1997 (Vic) is the main law that governs the rights and responsibilities of landlords and tenants in Victoria. Recent changes to this Act have strengthened tenant protections.</p>
+                    <div class="resource-links">
+                        <a href="#"><i class="fas fa-external-link-alt"></i> Consumer Affairs Victoria</a>
+                        <a href="#"><i class="fas fa-external-link-alt"></i> Tenants Victoria</a>
+                    </div>
+                    
+                    <div class="download-guide">
+                        <div class="download-icon">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <div class="download-info">
+                            <h4>Victorian Renter's Rights Handbook</h4>
+                            <p>A comprehensive guide to your rights as a tenant in Victoria</p>
+                            <p>PDF • 2.4 MB • Updated July 2023</p>
+                        </div>
+                        <a href="#" class="btn btn-secondary download-btn">Download</a>
+                    </div>
+                </div>
+                
+                <div class="resource-item">
+                    <h3>Rental Agreements and Leases</h3>
+                    <p>Learn about the different types of rental agreements in Victoria, including fixed-term leases and periodic (month-to-month) agreements. Understand what should be included in your agreement and your rights regarding lease renewals.</p>
+                    <div class="resource-links">
+                        <a href="#"><i class="fas fa-external-link-alt"></i> Standard Rental Agreement</a>
+                        <a href="#"><i class="fas fa-external-link-alt"></i> Condition Report Guide</a>
+                    </div>
+                </div>
+                
+                <div class="resource-item">
+                    <h3>Repairs and Maintenance</h3>
+                    <p>Landlords in Victoria are required to ensure rental properties are maintained in good repair. Learn about urgent and non-urgent repairs, how to request them, and what to do if your landlord doesn't respond.</p>
+                    <div class="resource-links">
+                        <a href="#"><i class="fas fa-external-link-alt"></i> Repairs Request Template</a>
+                        <a href="#"><i class="fas fa-external-link-alt"></i> VCAT Application Guide</a>
+                    </div>
+                </div>
+                
+                <div class="resource-item">
+                    <h3>Rent Increases and Bond</h3>
+                    <p>Victorian law regulates how often and by how much your rent can be increased. Learn about the rules for rent increases, bond payments, and how to get your bond back at the end of your tenancy.</p>
+                    <div class="resource-links">
+                        <a href="#"><i class="fas fa-external-link-alt"></i> Residential Tenancies Bond Authority</a>
+                        <a href="#"><i class="fas fa-external-link-alt"></i> Rent Increase Calculator</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Financial Assistance -->
+            <div class="resource-category" id="financial-assistance">
+                <h2>Financial Assistance Programs</h2>
+                
+                <div class="resource-item">
+                    <h3>Centrelink Rent Assistance</h3>
+                    <p>Commonwealth Rent Assistance is a payment that helps people who pay rent and receive a Centrelink payment. Learn about eligibility requirements, payment rates, and how to apply.</p>
+                    <div class="resource-links">
+                        <a href="#"><i class="fas fa-external-link-alt"></i> Services Australia</a>
+                        <a href="#"><i class="fas fa-external-link-alt"></i> Payment Calculator</a>
+                    </div>
+                </div>
+                
+                <div class="resource-item">
+                    <h3>Victorian Housing Register</h3>
+                    <p>The Victorian Housing Register is a common waiting list for people who want to apply for public and community housing in Victoria. Learn about priority categories and how to apply.</p>
+                    <div class="resource-links">
+                        <a href="#"><i class="fas fa-external-link-alt"></i> Housing.vic.gov.au</a>
+                        <a href="#"><i class="fas fa-external-link-alt"></i> Application Guide</a>
+                    </div>
+                </div>
+                
+                <div class="resource-item">
+                    <h3>Bond Loan Scheme</h3>
+                    <p>The Victorian Government offers interest-free bond loans to eligible low-income earners who can't afford to pay the bond for a new rental property. Learn about eligibility and how to apply.</p>
+                    <div class="resource-links">
+                        <a href="#"><i class="fas fa-external-link-alt"></i> Bond Loan Application</a>
+                        <a href="#"><i class="fas fa-external-link-alt"></i> Eligibility Checker</a>
+                    </div>
+                </div>
+                
+                <div class="resource-item">
+                    <h3>Emergency Housing Support</h3>
+                    <p>If you're at risk of homelessness or experiencing a housing crisis, there are emergency support services available in Melbourne and across Victoria.</p>
+                    <div class="resource-links">
+                        <a href="#"><i class="fas fa-external-link-alt"></i> Launch Housing</a>
+                        <a href="#"><i class="fas fa-external-link-alt"></i> Crisis Accommodation</a>
+                        <a href="#"><i class="fas fa-external-link-alt"></i> Housing Support Hotline</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Public Housing -->
+            <div class="resource-category" id="public-housing">
+                <h2>Public and Community Housing</h2>
+                
+                <div class="resource-item">
+                    <h3>Understanding Public Housing</h3>
+                    <p>Public housing in Victoria is managed by the Department of Families, Fairness and Housing. Learn about the different types of public housing available, eligibility requirements, and the application process.</p>
+                    <div class="resource-links">
+                        <a href="#"><i class="fas fa-external-link-alt"></i> Public Housing Information</a>
+                        <a href="#"><i class="fas fa-external-link-alt"></i> Property Locations</a>
+                    </div>
+                </div>
+                
+                <div class="resource-item">
+                    <h3>Community Housing Options</h3>
+                    <p>Community housing is provided by not-for-profit organizations that receive some government funding. These organizations offer various housing options, including long-term rental housing and transitional housing.</p>
+                    <div class="resource-links">
+                        <a href="#"><i class="fas fa-external-link-alt"></i> Community Housing Federation of Victoria</a>
+                        <a href="#"><i class="fas fa-external-link-alt"></i> Provider Directory</a>
+                    </div>
+                </div>
+                
+                <div class="resource-item">
+                    <h3>Priority Access Categories</h3>
+                    <p>The Victorian Housing Register has priority access categories for people who need housing urgently, including those experiencing homelessness, family violence, or significant hardship.</p>
+                    <div class="resource-links">
+                        <a href="#"><i class="fas fa-external-link-alt"></i> Priority Access Information</a>
+                        <a href="#"><i class="fas fa-external-link-alt"></i> Supporting Documentation Guide</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Student Housing -->
+            <div class="resource-category" id="student-housing">
+                <h2>Student Housing Resources</h2>
+                
+                <div class="resource-item">
+                    <h3>International Student Housing Guide</h3>
+                    <p>Melbourne welcomes thousands of international students each year. This guide provides information on finding suitable accommodation, understanding your rights as a tenant, and accessing support services.</p>
+                    <div class="resource-links">
+                        <a href="#"><i class="fas fa-external-link-alt"></i> Study Melbourne</a>
+                        <a href="#"><i class="fas fa-external-link-alt"></i> International Student Housing Guide</a>
+                    </div>
+                    
+                    <div class="download-guide">
+                        <div class="download-icon">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <div class="download-info">
+                            <h4>International Student Housing Guide</h4>
+                            <p>A comprehensive guide to finding accommodation in Melbourne as an international student</p>
+                            <p>PDF • 1.8 MB • Updated August 2023</p>
+                        </div>
+                        <a href="#" class="btn btn-secondary download-btn">Download</a>
+                    </div>
+                </div>
+                
+                <div class="resource-item">
+                    <h3>University Accommodation Services</h3>
+                    <p>Most Melbourne universities offer accommodation services and can help students find on-campus or off-campus housing. Learn about the options available at major Melbourne universities.</p>
+                    <div class="resource-links">
+                        <a href="#"><i class="fas fa-external-link-alt"></i> University of Melbourne Housing</a>
+                        <a href="#"><i class="fas fa-external-link-alt"></i> RMIT Accommodation</a>
+                        <a href="#"><i class="fas fa-external-link-alt"></i> Monash Residential Services</a>
+                        <a href="#"><i class="fas fa-external-link-alt"></i> Deakin Accommodation</a>
+                    </div>
+                </div>
+                
+                <div class="resource-item">
+                    <h3>Share Housing Tips</h3>
+                    <p>Share housing is a popular option for students in Melbourne. Learn about finding housemates, setting up agreements, and managing shared living arrangements.</p>
+                    <div class="resource-links">
+                        <a href="#"><i class="fas fa-external-link-alt"></i> Share Housing Guide</a>
+                        <a href="#"><i class="fas fa-external-link-alt"></i> Flatmate Agreement Template</a>
+                    </div>
+                </div>
+                
+                <div class="resource-item">
+                    <h3>Student Budget Planning</h3>
+                    <p>Managing your housing budget as a student can be challenging. Access tools and resources to help you plan your finances and find affordable accommodation options.</p>
+                    <div class="resource-links">
+                        <a href="#"><i class="fas fa-external-link-alt"></i> Student Budget Calculator</a>
+                        <a href="#"><i class="fas fa-external-link-alt"></i> Financial Assistance for Students</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Support Section -->
+    <section class="cta" style="background-color: var(--light-color);">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Need Personalized Housing Assistance?</h2>
+                <p>Our team of Melbourne housing experts is here to help you navigate your options</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-primary">Contact Our Team</a>
+                    <a href="services.html" class="btn btn-secondary">View Our Services</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <h3>About RentEase Melbourne</h3>
+                    <p>RentEase is a Victorian non-profit organization dedicated to connecting people with affordable housing options across Melbourne and providing resources for renters.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="properties.html">Properties</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Collins Street, Melbourne VIC 3000</p>
+                    <p><i class="fas fa-phone"></i> (03) 9123 4567</p>
+                    <p><i class="fas fa-envelope"></i> info@rentease.org.au</p>
+                </div>
+                <div class="footer-section newsletter">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter for updates on new Melbourne properties and housing resources.</p>
+                    <form id="newsletter-form">
+                        <input type="email" placeholder="Your Email Address" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 RentEase Melbourne. All rights reserved. A Victorian non-profit organization.</p>
+                <p>We acknowledge the Traditional Owners of the land on which we operate, the Wurundjeri people of the Kulin Nation, and pay our respects to Elders past, present and emerging.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+
+    <!-- JavaScript Files -->
+    <script src="js/main.js"></script>
+</body>
+</html> 

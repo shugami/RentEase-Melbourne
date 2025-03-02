@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Latest rental market news, tips, and insights for Melbourne renters">
+    <meta name="keywords" content="Melbourne rental news, rental market trends, renting tips, housing market updates">
+    <meta name="author" content="RentEase Melbourne">
+    <title>Blog & News - RentEase Melbourne</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <style>
+        /* Additional styles specific to blog page */
+        .blog-section {
+            padding: var(--spacing-xl) 0;
+        }
+        
+        .blog-filters {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-lg);
+            flex-wrap: wrap;
+            gap: var(--spacing-md);
+        }
+        
+        .filter-categories {
+            display: flex;
+            gap: var(--spacing-sm);
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 8px 16px;
+            border: 2px solid var(--primary-color);
+            border-radius: var(--border-radius-sm);
+            background: transparent;
+            color: var(--primary-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .blog-search {
+            flex: 0 0 300px;
+        }
+        
+        .blog-search input {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid var(--border-color);
+            border-radius: var(--border-radius-sm);
+        }
+        
+        .blog-search input:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+        }
+        
+        .blog-card {
+            background: white;
+            border-radius: var(--border-radius-md);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .blog-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .blog-content {
+            padding: var(--spacing-md);
+        }
+        
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-sm);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        
+        .blog-category {
+            background: var(--light-color);
+            padding: 4px 8px;
+            border-radius: var(--border-radius-sm);
+            color: var(--primary-color);
+        }
+        
+        .blog-title {
+            margin-bottom: var(--spacing-sm);
+            color: var(--text-color);
+        }
+        
+        .blog-excerpt {
+            color: var(--text-muted);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .featured-post {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .featured-post .blog-image {
+            height: 400px;
+        }
+        
+        .featured-content {
+            padding: var(--spacing-lg);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .featured-content .blog-title {
+            font-size: 2rem;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .featured-content .blog-excerpt {
+            font-size: 1.1rem;
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-xl);
+        }
+        
+        .page-btn {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--border-color);
+            border-radius: var(--border-radius-sm);
+            background: white;
+            color: var(--text-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .page-btn:hover,
+        .page-btn.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        @media (max-width: 768px) {
+            .featured-post {
+                grid-template-columns: 1fr;
+            }
+            
+            .featured-post .blog-image {
+                height: 300px;
+            }
+            
+            .featured-content {
+                padding: var(--spacing-md);
+            }
+            
+            .featured-content .blog-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Dropdown styles */
+        .main-menu li {
+            position: relative;
+        }
+        
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            box-shadow: var(--box-shadow);
+            border-radius: var(--border-radius-sm);
+            min-width: 200px;
+            z-index: 1000;
+        }
+        
+        .main-menu li:hover .dropdown-menu {
+            display: block;
+        }
+        
+        .dropdown-menu li {
+            width: 100%;
+        }
+        
+        .dropdown-menu a {
+            padding: 10px 15px;
+            display: block;
+            color: var(--text-color);
+            transition: all 0.3s ease;
+        }
+        
+        .dropdown-menu a:hover {
+            background: var(--light-color);
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .dropdown-menu {
+                position: static;
+                box-shadow: none;
+                background: var(--light-color);
+                display: none;
+            }
+            
+            .main-menu li.active .dropdown-menu {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <h1>Rent<span>Ease</span> Melbourne</h1>
+                </a>
+            </div>
+            <nav>
+                <ul class="main-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="properties.html">Properties</a></li>
+                    <li>
+                        <a href="#">Special Housing</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="student-housing.html">Student Housing</a></li>
+                            <li><a href="corporate-rentals.html">Corporate Rentals</a></li>
+                            <li><a href="family-housing.html">Family Housing</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Banner -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Blog & News</h1>
+                <p>Stay informed about Melbourne's rental market trends and tips</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog-section">
+        <div class="container">
+            <!-- Filters -->
+            <div class="blog-filters">
+                <div class="filter-categories">
+                    <button class="filter-btn active">All</button>
+                    <button class="filter-btn">Market Updates</button>
+                    <button class="filter-btn">Renting Tips</button>
+                    <button class="filter-btn">Legal Updates</button>
+                    <button class="filter-btn">Community</button>
+                </div>
+                <div class="blog-search">
+                    <input type="text" placeholder="Search articles...">
+                </div>
+            </div>
+
+            <!-- Featured Post -->
+            <div class="featured-post blog-card">
+                <div class="blog-image">
+                    <img src="images/rental-market.jpg" alt="Melbourne Rental Market Update">
+                </div>
+                <div class="featured-content">
+                    <div class="blog-meta">
+                        <span class="blog-category">Market Updates</span>
+                        <span class="blog-date">March 1, 2024</span>
+                    </div>
+                    <h2 class="blog-title">Melbourne Rental Market: 2024 Trends and Predictions</h2>
+                    <p class="blog-excerpt">Discover the latest trends shaping Melbourne's rental market in 2024, including price movements, suburb popularity, and emerging opportunities for renters.</p>
+                    <a href="#" class="btn btn-primary">Read More</a>
+                </div>
+            </div>
+
+            <!-- Blog Grid -->
+            <div class="blog-grid">
+                <!-- Renting Tips -->
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="images/inspection-tips.jpg" alt="Property Inspection Tips">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">Renting Tips</span>
+                            <span class="blog-date">February 28, 2024</span>
+                        </div>
+                        <h3 class="blog-title">10 Things to Check During a Property Inspection</h3>
+                        <p class="blog-excerpt">Make the most of your property inspections with our comprehensive checklist of things to look out for.</p>
+                        <a href="#" class="btn btn-secondary">Read More</a>
+                    </div>
+                </div>
+
+                <!-- Legal Updates -->
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="images/rental-laws.jpg" alt="Rental Law Changes">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">Legal Updates</span>
+                            <span class="blog-date">February 25, 2024</span>
+                        </div>
+                        <h3 class="blog-title">New Victorian Rental Laws: What You Need to Know</h3>
+                        <p class="blog-excerpt">Stay informed about the latest changes to Victorian rental laws and how they affect your rights as a tenant.</p>
+                        <a href="#" class="btn btn-secondary">Read More</a>
+                    </div>
+                </div>
+
+                <!-- Community -->
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="images/community-events.jpg" alt="Community Events">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">Community</span>
+                            <span class="blog-date">February 22, 2024</span>
+                        </div>
+                        <h3 class="blog-title">Upcoming Community Events in Melbourne</h3>
+                        <p class="blog-excerpt">Discover local events and activities happening in your neighborhood this autumn.</p>
+                        <a href="#" class="btn btn-secondary">Read More</a>
+                    </div>
+                </div>
+
+                <!-- Market Updates -->
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="images/suburb-guide.jpg" alt="Suburb Guide">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">Market Updates</span>
+                            <span class="blog-date">February 20, 2024</span>
+                        </div>
+                        <h3 class="blog-title">Melbourne's Most Affordable Suburbs in 2024</h3>
+                        <p class="blog-excerpt">Explore Melbourne's hidden gems where you can find great value rentals without compromising on lifestyle.</p>
+                        <a href="#" class="btn btn-secondary">Read More</a>
+                    </div>
+                </div>
+
+                <!-- Renting Tips -->
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="images/budget-tips.jpg" alt="Budgeting Tips">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">Renting Tips</span>
+                            <span class="blog-date">February 18, 2024</span>
+                        </div>
+                        <h3 class="blog-title">Smart Budgeting Tips for Melbourne Renters</h3>
+                        <p class="blog-excerpt">Learn how to manage your rental budget effectively while still enjoying Melbourne's lifestyle.</p>
+                        <a href="#" class="btn btn-secondary">Read More</a>
+                    </div>
+                </div>
+
+                <!-- Legal Updates -->
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="images/bond-guide.jpg" alt="Bond Guide">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">Legal Updates</span>
+                            <span class="blog-date">February 15, 2024</span>
+                        </div>
+                        <h3 class="blog-title">Your Complete Guide to Rental Bonds</h3>
+                        <p class="blog-excerpt">Understanding your rights and responsibilities regarding rental bonds in Victoria.</p>
+                        <a href="#" class="btn btn-secondary">Read More</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <button class="page-btn"><i class="fas fa-chevron-left"></i></button>
+                <button class="page-btn active">1</button>
+                <button class="page-btn">2</button>
+                <button class="page-btn">3</button>
+                <button class="page-btn">4</button>
+                <button class="page-btn"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="cta" style="background-color: var(--light-color);">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Stay Updated</h2>
+                <p>Subscribe to our newsletter for the latest rental market insights and tips</p>
+                <form id="newsletter-form" class="newsletter-form">
+                    <input type="email" placeholder="Your Email Address" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <h3>About RentEase Melbourne</h3>
+                    <p>RentEase is a Victorian non-profit organization dedicated to connecting people with affordable housing options across Melbourne and providing resources for renters.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="properties.html">Properties</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Collins Street, Melbourne VIC 3000</p>
+                    <p><i class="fas fa-phone"></i> (03) 9123 4567</p>
+                    <p><i class="fas fa-envelope"></i> info@rentease.org.au</p>
+                </div>
+                <div class="footer-section newsletter">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter for updates on rental market trends and tips.</p>
+                    <form id="newsletter-form">
+                        <input type="email" placeholder="Your Email Address" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 RentEase Melbourne. All rights reserved.</p>
+                <p>We acknowledge the Traditional Owners of the land on which we operate, the Wurundjeri people of the Kulin Nation, and pay our respects to Elders past, present and emerging.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+
+    <!-- JavaScript Files -->
+    <script src="js/main.js"></script>
+    <script>
+        // Blog Filter Functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const blogCards = document.querySelectorAll('.blog-card');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                const category = button.textContent.toLowerCase();
+                
+                blogCards.forEach(card => {
+                    const cardCategory = card.querySelector('.blog-category').textContent.toLowerCase();
+                    
+                    if (category === 'all' || cardCategory === category) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Blog Search Functionality
+        const searchInput = document.querySelector('.blog-search input');
+        
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            
+            blogCards.forEach(card => {
+                const title = card.querySelector('.blog-title').textContent.toLowerCase();
+                const excerpt = card.querySelector('.blog-excerpt').textContent.toLowerCase();
+                
+                if (title.includes(searchTerm) || excerpt.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+
+        // Pagination Functionality
+        const pageButtons = document.querySelectorAll('.page-btn');
+        
+        pageButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                pageButtons.forEach(btn => btn.classList.remove('active'));
+                if (!button.querySelector('i')) {  // Don't add active class to arrow buttons
+                    button.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html> 
